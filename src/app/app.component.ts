@@ -11,13 +11,11 @@ export class AppComponent implements OnInit {
 
   title = 'proyectoGrado';
 
-  items: Observable<any[]>;
 
-  constructor(private db: AngularFirestore) { }
+  constructor() { }
 
 
   ngOnInit(): void {
-    this.items = this.db.collection('items').valueChanges();
         // .subscribe(data => {
         //   console.log(data);
         // });

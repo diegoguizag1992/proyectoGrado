@@ -1,3 +1,4 @@
+import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
 import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
 import { PrincipalComponent } from './components/auth/principal/principal.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent},
   { path: 'requerimientos', component: RequerimientosComponent},
   { path: 'requerimiento', component: RequerimientoComponent},
-  { path: 'respuestaRequerimiento', component: NuevoUsuarioComponent},
+  { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent}
 ];
 
 @NgModule({
