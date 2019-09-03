@@ -16,6 +16,8 @@ import { RequerimientoComponent } from './components/auth/requerimientos/requeri
 import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 import { LoginComponent } from './components/public/login/login.component';
 import { NuevoUsuarioComponent } from './components/public/nuevo-usuario/nuevo-usuario.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 
 
@@ -29,7 +31,9 @@ import { NuevoUsuarioComponent } from './components/public/nuevo-usuario/nuevo-u
     RequerimientoComponent,
     RespuestaRequerimientosComponent,
     LoginComponent,
-    NuevoUsuarioComponent
+    NuevoUsuarioComponent,
+    SpinnerComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
