@@ -8,32 +8,15 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { PerfilesComponent } from './components/auth/perfiles/perfiles/perfiles.component';
-import { PerfilComponent } from './components/auth/perfiles/perfil/perfil.component';
-import { PrincipalComponent } from './components/auth/principal/principal.component';
-import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
-import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
-import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
-import { LoginComponent } from './components/public/login/login.component';
-import { NuevoUsuarioComponent } from './components/public/nuevo-usuario/nuevo-usuario.component';
-import { SpinnerComponent } from './components/shared/spinner/spinner.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PerfilesComponent,
-    PerfilComponent,
-    PrincipalComponent,
-    RequerimientosComponent,
-    RequerimientoComponent,
-    RespuestaRequerimientosComponent,
-    LoginComponent,
-    NuevoUsuarioComponent,
-    SpinnerComponent,
-    NavbarComponent
+    PerfilesComponent
   ],
   imports: [
     BrowserModule,
