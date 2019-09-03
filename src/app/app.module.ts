@@ -8,12 +8,24 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { PerfilesComponent } from './components/auth/perfiles/perfiles/perfiles.component';
+import { PerfilComponent } from './components/auth/perfiles/perfil/perfil.component';
+import { PrincipalComponent } from './components/auth/principal/principal.component';
+import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
+import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
+import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PerfilesComponent,
+    PerfilComponent,
+    PrincipalComponent,
+    RequerimientosComponent,
+    RequerimientoComponent,
+    RespuestaRequerimientosComponent
   ],
   imports: [
     BrowserModule,
