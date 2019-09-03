@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
 
   title = 'proyectoGrado';
+  loader = true;
 
 
   constructor() { }
