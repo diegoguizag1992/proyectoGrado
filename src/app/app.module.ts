@@ -14,6 +14,8 @@ import { PrincipalComponent } from './components/auth/principal/principal.compon
 import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
 import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
 import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
+import { LoginComponent } from './components/public/login/login.component';
+import { NuevoUsuarioComponent } from './components/public/nuevo-usuario/nuevo-usuario.component';
 
 
 
@@ -25,7 +27,9 @@ import { RespuestaRequerimientosComponent } from './components/auth/requerimient
     PrincipalComponent,
     RequerimientosComponent,
     RequerimientoComponent,
-    RespuestaRequerimientosComponent
+    RespuestaRequerimientosComponent,
+    LoginComponent,
+    NuevoUsuarioComponent
   ],
   imports: [
     BrowserModule,
