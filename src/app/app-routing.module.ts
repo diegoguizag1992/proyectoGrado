@@ -11,7 +11,6 @@ import { PerfilesComponent } from './components/auth/perfiles/perfiles.component
 
 
 const routes: Routes = [
-  { path: '**', redirectTo: 'login' },
   { path: 'login', component: LoginComponent},
   { path: 'nuevoUsuario', component: NuevoUsuarioComponent},
   { path: 'perfiles', component: PerfilesComponent},
@@ -19,7 +18,8 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent},
   { path: 'requerimientos', component: RequerimientosComponent},
   { path: 'requerimiento', component: RequerimientoComponent},
-  { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent}
+  { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

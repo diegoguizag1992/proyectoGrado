@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+
+.btn-circle {
+  width: 100px;
+  height: 100px;
+  padding: 6px 0px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  font-size: 15px;
+  line-height: 1.33;
+}

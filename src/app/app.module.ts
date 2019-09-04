@@ -1,3 +1,5 @@
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
 import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
@@ -7,6 +9,8 @@ import { NuevoUsuarioComponent } from './components/public/nuevo-usuario/nuevo-u
 import { LoginComponent } from './components/public/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +20,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     RequerimientoComponent,
     RespuestaRequerimientosComponent,
     RequerimientosComponent,
+    SpinnerComponent,
     NavbarComponent
   ],
   imports: [
@@ -39,8 +42,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

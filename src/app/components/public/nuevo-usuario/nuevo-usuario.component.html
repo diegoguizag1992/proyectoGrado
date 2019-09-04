@@ -1,1 +1,30 @@
-<p>nuevo-usuario works!</p>
+<div class="container col-xs-4 col-sm-6 col-md-4 col-lg-4 pt-5">
+  <div class="card border-info" style="max-width: 18rem;">
+    <div class="card-header text-center">Login</div>
+    <div class="card-body text-info text-center">
+        <form (ngSubmit)="loginEmpleado()">
+            <h5 class="card-title">Nombre:</h5>
+            <input type="text" placeholder="Nombre ..."
+                   value="nombre" class="form-control" name="nombre"
+                   [(ngModel)]="empleados.nombre" required/>
+            <br>
+            <h5 class="card-title">Contraseña:</h5>
+            <input type="text" placeholder="Contrasena ..."
+                   value="nombre" class="form-control" name="nombre"
+                   [(ngModel)]="empleados.password" required/>
+            <br>
+            <h5 class="card-title">Email:</h5>
+            <input type="text" placeholder="Email ..."
+                   value="email" class="form-control" name="email"
+                   [(ngModel)]="empleados.email" required/>
+            <br> <br>
+            <button class="btn btn-warning" type="submit"> Ingresar </button>
+            &nbsp; &nbsp;
+            <button class="btn btn-warning" type="button" (click)="redirigirLogin()"> Atras </button>
+            <br>
+          </form>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
