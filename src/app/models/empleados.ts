@@ -1,6 +1,7 @@
 export interface Empleados {
   id?: string;
   nombre?: number;
+  displayName?: string;
   apellido?: string;
   codigo_empleado?: number;
   centro_costos?: string;

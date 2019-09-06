@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Observable } from 'rxjs';
+import { Empleados } from 'src/app/models/empleados';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +12,42 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class LoginComponent implements OnInit {
 
+  private user: Empleados = {};
+
+
   constructor(private router: Router,
-              public  afAuth:  AngularFireAuth,
-              public  auht: AuthServiceService) { }
+    public firebaseAuth: AngularFireAuth,
+    public auht: AuthServiceService) { }
 
   ngOnInit() {
+    this.auht.datos()
+      .subscribe(data => {
+        this.user = data;
+        console.log(this.user.displayName);
+        sessionStorage.setItem('datos', JSON.stringify(this.user));
+      })
+
   }
 
   loginPersonal() {
     this.router.navigate(['/nuevoUsuario']);
 
   }
+
+  signInWithGithub() {
+    this.auht.signInWithGithub()
+      .then((res) => {
+        this.router.navigate(['/perfiles'])
+      })
+      .catch((err) => console.log(err));
+  }
+
   async  loginWithGoogle() {
-      this.auht.signInWithGoogle();
+    this.auht.signInWithGoogle()
+    .then((res) => {
+      this.router.navigate(['/perfiles'])
+    })
+      .catch((err) => console.log(err));
   }
 
 }

@@ -13,12 +13,12 @@ export class AuthServiceService {
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
 
-  constructor(private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router,
-    private db: AngularFirestore) {
+  constructor(private firebaseAuth: AngularFireAuth,
+              private afs: AngularFirestore,
+              private router: Router,
+              private db: AngularFirestore) {
 
-    this.user = afAuth.authState;
+    this.user = firebaseAuth.authState;
     this.user.subscribe(
       (user) => {
         if (user) {
@@ -32,23 +32,32 @@ export class AuthServiceService {
     );
   }
 
+  datos() {
+    return this.user;
+  }
+
   signInWithGoogle() {
-    return this.afAuth.auth.signInWithPopup(
+    return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider())
   }
 
+  signInWithGithub() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GithubAuthProvider()
+    )
+  }
   isLoggedIn() {
-    if (this.userDetails == null ) {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  logout() {
-      this.afAuth.auth.signOut()
-      .then((res) => this.router.navigate(['/']));
+    if (this.userDetails == null) {
+      return false;
+    } else {
+      return true;
     }
   }
+  logout() {
+    this.firebaseAuth.auth.signOut()
+      .then((res) => this.router.navigate(['/']));
+  }
+}
 
 
 
