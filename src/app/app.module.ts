@@ -10,6 +10,7 @@ import { LoginComponent } from './components/public/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
+import { AuthServiceService } from './services/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,10 @@ import { PerfilesComponent } from './components/auth/perfiles/perfiles.component
     AngularFireAuthModule,
     AngularFireStorageModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AuthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

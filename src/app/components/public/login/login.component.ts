@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              public  afAuth:  AngularFireAuth,
+              public  auht: AuthServiceService) { }
 
   ngOnInit() {
   }
@@ -17,5 +21,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/nuevoUsuario']);
 
   }
+  async  loginWithGoogle() {
+      this.auht.signInWithGoogle();
+  }
 
 }
+

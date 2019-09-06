@@ -22,6 +22,20 @@ export class NuevoUsuarioComponent implements OnInit {
 
   loginEmpleado() {
     console.log(this.empleados);
+    let objeto = JSON.stringify(this.empleados);
+    console.log(objeto);
+
+    let resultado = JSON.parse(objeto);
+    console.log(resultado);
+
+
+
+    localStorage.setItem('Nombre', JSON.stringify(this.empleados));
+
+    var guardado = localStorage.getItem('Nombre');
+    console.log('objetoObtenido: ', JSON.parse(guardado));
+
+
 
   }
 
