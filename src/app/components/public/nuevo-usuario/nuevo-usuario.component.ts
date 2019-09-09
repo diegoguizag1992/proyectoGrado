@@ -1,6 +1,7 @@
 import { Empleados } from './../../../models/empleados';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-nuevo-usuario',
@@ -11,7 +12,8 @@ export class NuevoUsuarioComponent implements OnInit {
 
   empleados: any = {};
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private servicioAuth: AuthServiceService) { }
 
   ngOnInit() {
   }
@@ -20,20 +22,22 @@ export class NuevoUsuarioComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+
   loginEmpleado() {
     console.log(this.empleados);
-    let objeto = JSON.stringify(this.empleados);
-    console.log(objeto);
+    this.servicioAuth.login(this.empleados);
+    return this.empleados;
 
-    let resultado = JSON.parse(objeto);
-    console.log(resultado);
+    // let objeto = JSON.stringify(this.empleados);
+    // console.log(objeto);
 
+    // let resultado = JSON.parse(objeto);
+    // console.log(resultado);
 
+    // localStorage.setItem('Nombre', JSON.stringify(this.empleados));
 
-    localStorage.setItem('Nombre', JSON.stringify(this.empleados));
-
-    var guardado = localStorage.getItem('Nombre');
-    console.log('objetoObtenido: ', JSON.parse(guardado));
+    // var guardado = localStorage.getItem('Nombre');
+    // console.log('objetoObtenido: ', JSON.parse(guardado));
 
 
 

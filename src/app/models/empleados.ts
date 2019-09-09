@@ -7,5 +7,5 @@ export interface Empleados {
   centro_costos?: string;
   perfiles_codigo_perfil?: number;
   email?: string;
-  password?: string;
+  pass?: string;
 }

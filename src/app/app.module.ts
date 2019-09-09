@@ -11,6 +11,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,7 +48,8 @@ import { AuthServiceService } from './services/auth-service.service';
     AngularFireStorageModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [AuthServiceService],
   bootstrap: [AppComponent]

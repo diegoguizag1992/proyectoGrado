@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   }
 
+  // Ingreso con GitHub
   signInWithGithub() {
     this.auht.signInWithGithub()
       .then((res) => {
@@ -42,12 +43,17 @@ export class LoginComponent implements OnInit {
       .catch((err) => console.log(err));
   }
 
+  // Ingreso con Google
   async  loginWithGoogle() {
     this.auht.signInWithGoogle()
     .then((res) => {
       this.router.navigate(['/perfiles'])
     })
       .catch((err) => console.log(err));
+  }
+
+  solicitud(){
+    this.auht.solicitud();
   }
 
 }
