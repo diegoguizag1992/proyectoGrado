@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   attribute;
   private user: Empleados = {};
   private userDetails: firebase.User = null;
-  registro = 'Ingrese a Jbolivar';
+  registro = 'No hay usuario';
   usuario: Usuario = {};
   datosLocalStorage: any = {};
   verDos;
@@ -51,9 +51,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         else {
           this.userDetails = null;
         }
-        if (this.usuario === null) {
-          this.registro = 'Ingrese a Jbolivar'
-          this.ver = false;
+        if (Object.keys(this.usuario).length === 0) {
+          console.log('No hay datos');
+          this.registro = 'Ingrese a Jbolivar';
+          return this.ver = false;
         } else {
           console.log('Si hay datos', this.usuario);
           this.registro = 'A Ingresado a Jbolivar';
@@ -118,24 +119,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   salir() {
     console.log('entro');
+    this.storage.clear('datos');
     this.ver = false;
     this.registro = 'Ingrese a JBolivar';
-    this.infoLoginHtml = false;
-    this.infoLoginHtmlDos = false;
-    this.storage.clear('datos');
+    this.usuario.displayName = '';
+    this.usuario.email = '';
+    // this.infoLoginHtml = false;
+    // this.infoLoginHtmlDos = false;
     this.router.navigate(['/login']);
     this.auth.logOut();
-    if (this.attribute === null) {
-      console.log('No hay datos en local');
-    } else {
-
-    }
-
+    return;
   }
 
   salida() {
     this.auth.logout();
-    this.router.navigate(['/login']);
     this.ngOnDestroy();
   }
 
