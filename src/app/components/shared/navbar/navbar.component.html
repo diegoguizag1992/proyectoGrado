@@ -1,15 +1,57 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+  <a class="navbar-brand" href="#">JBolivar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarText"
+    aria-controls="navbarText"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarText" *ngIf="ver" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+
   </div>
+  <span class="push-right" role="button" data-toggle="modal" data-target="#exampleModalLong" ></span>
+    <nav class="navbar">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbardrop"
+                data-toggle="dropdown"> &nbsp;
+                &nbsp;<i class="fa fa-user-circle fa-lg" aria-hidden="true"></i> &nbsp; &nbsp;
+            </a> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;
+            <div class="dropdown-menu">
+              <div class="container">
+                <br>
+                <p href="">{{registro}}</p>
+                <p href="" *ngIf="infoLoginHtml">{{attribute.displayName}}</p>
+                <p href="" *ngIf="infoLoginHtmlDos">{{attribute.email}}</p>
+                <!-- <p href="">{{attribute.photoURL}}</p> -->
+                <br>
+                <div class="d-flex">
+                    <button class="btn btn-info push-right" (click)="salir()" >Salir.</button>
+                  </div>
+              </div>
+            </div>
+    </nav>
 </nav>
-<router-outlet></router-outlet>
+<div>
+</div>
+
+<!-- Modal -->
+
+

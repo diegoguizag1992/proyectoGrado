@@ -1,18 +1,281 @@
 
-.btn-circle {
-  width: 100px;
-  height: 100px;
-  padding: 6px 0px;
-  border-radius: 20px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.42857;
+h1{
+  color: red;
 }
 
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  border-radius: 35px;
-  font-size: 15px;
-  line-height: 1.33;
+html, body{
+  height: 100%;
+  margin: 0;
+}
+
+.logo{
+  display: inline;
+}
+
+img{
+  display: inline;
+  position: absolute;
+  right: 20%;
+  top : 100px;
+  height : 500px;
+  left : 230px;
+  width : 900px;
+}
+
+#ingreso{
+  display: inline;
+  position: absolute;
+  top: 400px;
+  left: 600px;
+}
+
+#footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  background:#DEDEDE;
+}
+
+.iniciologo{
+  display: inline;
+  width: 120px;
+  height: 60px;
+  top: 10px;
+  left: 20px;
+}
+
+.error404{
+  display: inline;
+  width: 800px;
+  height: 400px;
+  top: 170px;
+  left: 300px;
+}
+
+#error404Button{
+  position:absolute;
+  top: 480px;
+  left: 335px;
+}
+
+.centrado{
+  display:block;
+  margin-top:160px;
+}
+
+.solicitudLogo{
+  display: inline;
+  width: 800px;
+  height: 250px;
+  top: 230px;
+  left: 450px;
+
+}
+
+.div{
+ background: #379fe8;
+  top: 70px;
+  height: 35px;
+
+}
+
+.div2{
+  display: inline;
+  background: #379fe8;
+  margin-top: 75px;
+  height: 35px;
+}
+
+section{
+  min-height: 100%;
+  margin-bottom: -30px;
+}
+
+.section2{
+  min-height: 100%;
+  margin-bottom: -30px;
+}
+
+.myfooter{
+  background-color: #dddddd;
+  height: 30px;
+  font-size: 12px;
+}
+
+.myfooterini{
+  background-color: #dddddd;
+  height: 30px;
+  font-size: 12px;
+}
+
+.consultar{
+  position: absolute;
+  top: 140px;
+  left: 140px;
+}
+
+.perfiles{
+  text-align: center;
+}
+
+.perfiles2{
+  background-color: #9ad5ff;
+  text-align: center;
+}
+
+.estiloDiv{
+  margin: 10px;
+  width: 600px;
+  height: 300px;
+  top: 300px;
+  left: 500px;
+}
+
+.estilosDiv{
+  position: absolute;
+  top: 160px;
+  left: 400px;
+}
+
+.navPosition{
+  position: absolute;
+  background: #379fe8;
+  top: 80px;
+  height: 35px;
+  width: 100%;
+
+}
+
+        /* Crear Requerimiento */
+
+.numeroRequerimiento{
+  position: absolute;
+  top: 70px;
+  left: 25px;
+}
+
+.requerimiento{
+  position: absolute;
+  top: 65px;
+  left: 140px;
+  height: 555px;
+  width: 800px;
+}
+
+.tipoRequer{
+  position: absolute;
+  top: 125px;
+  left: 55px;
+  text-align: left;
+}
+
+.fechaRequer{
+  position: absolute;
+  top: 160px;
+  left: 470px;
+}
+
+
+.observaciones{
+  position: absolute;
+  top: 375px;
+  left: 55px;
+}
+
+.observacionesDos{
+  position: absolute;
+  top: 410px;
+  left: 85px;
+  font-size: 14px;
+
+}
+
+.selectMenu{
+  position: absolute;
+  top: 145px;
+  left: 55px;
+  width: 325px;
+}
+
+.selectMenuDos{
+  position: absolute;
+  top: 235px;
+  left:  40px;
+}
+.selectResponsables{
+  position: absolute;
+  top: 220px;
+  left:  80px;
+}
+
+.calendario{
+  position: absolute;
+  top: 100px;
+  left: 360px;
+  width:200px;
+
+}
+
+.responsable{
+  position: absolute;
+  top: 205px;
+  left: 55px;
+}
+
+.asunto{
+  position: absolute;
+  top: 280px;
+  left: 55px;
+}
+
+.asuntoDos{
+  position: absolute;
+  top: 310px;
+  left: 85px;
+  font-size: 14px;
+
+}
+
+.adjuntos{
+  position: absolute;
+  top: 470px;
+  left: 120px;
+  font-size: 14px;
+}
+
+.adjunto{
+  position: absolute;
+  top: 490px;
+  left: 160px;
+  height: 60px;
+  width: 60px;
+}
+
+.adjuntoEntrada{
+  height: 60px;
+  width: 60px;
+}
+
+.boton{
+  position: absolute;
+  top: 490px;
+  left: 350px;
+  width: 90px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*  crear Requerimiento */
+.calendario{
+  display: inline;
+  position: absolute;
+  top : 190px;
+  left : 460px;
+}
+
+.push-right {
+  margin-left: auto;
 }

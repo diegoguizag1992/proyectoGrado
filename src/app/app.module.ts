@@ -13,8 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {HttpClientModule} from '@angular/common/http';
 
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -24,6 +22,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
 import { AuthServiceService } from './services/auth-service.service';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,8 @@ import { AuthServiceService } from './services/auth-service.service';
     AppRoutingModule,
     FormsModule,
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [AuthServiceService],
   bootstrap: [AppComponent]

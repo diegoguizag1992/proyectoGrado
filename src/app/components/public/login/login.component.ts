@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Observable } from 'rxjs';
 import { Empleados } from 'src/app/models/empleados';
+import { LocalStorage, LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-login',
@@ -13,20 +14,43 @@ import { Empleados } from 'src/app/models/empleados';
 export class LoginComponent implements OnInit {
 
   private user: Empleados = {};
+  private userDetails: firebase.User = null;
 
+  @LocalStorage('datosLogin')
+  datosLogin;
 
   constructor(private router: Router,
     public firebaseAuth: AngularFireAuth,
-    public auht: AuthServiceService) { }
+    public auht: AuthServiceService,
+    private activatedRoutes: ActivatedRoute,
+    private storage: LocalStorageService ) { }
 
   ngOnInit() {
-    this.auht.datos()
-      .subscribe(data => {
-        this.user = data;
-        console.log(this.user.displayName);
-        sessionStorage.setItem('datos', JSON.stringify(this.user));
-      })
 
+          console.log('Login',this.datosLogin);
+
+
+
+
+
+    // this.auht.datos()
+    // .subscribe(data => {
+    //   this.user = data;
+    //   this.userDetails = data;
+
+    //   if (data == null) {
+
+    //   } else {
+    //     this.router.navigate(['/perfiles']);
+    //   }
+    //   console.log('Datos en el login',data);
+
+    //   // console.log(this.user.displayName);
+    // })
+  }
+
+  logOut(){
+    this.auht.logOut();
   }
 
   loginPersonal() {
@@ -37,24 +61,18 @@ export class LoginComponent implements OnInit {
   // Ingreso con GitHub
   signInWithGithub() {
     this.auht.signInWithGithub()
-      .then((res) => {
-        this.router.navigate(['/perfiles'])
+    .then((res) => {
+      // this.router.navigate(['/perfiles'])
+    })
+      .catch((err) => {
+        sessionStorage.setItem('datos', JSON.stringify(this.user));
+
       })
-      .catch((err) => console.log(err));
   }
 
   // Ingreso con Google
-  async  loginWithGoogle() {
+   loginWithGoogle() {
     this.auht.signInWithGoogle()
-    .then((res) => {
-      this.router.navigate(['/perfiles'])
-    })
-      .catch((err) => console.log(err));
   }
-
-  solicitud(){
-    this.auht.solicitud();
-  }
-
 }
 

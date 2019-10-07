@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LocalStorage } from 'ngx-webstorage';
+import { NavbarComponent } from '../../shared/navbar/navbar.component';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-perfiles',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private activatedRoutes: ActivatedRoute,
+               private auth: AuthServiceService) { }
 
   ngOnInit() {
+
+
   }
 
 }

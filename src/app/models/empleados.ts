@@ -8,4 +8,5 @@ export interface Empleados {
   perfiles_codigo_perfil?: number;
   email?: string;
   pass?: string;
+  emailVerified?: boolean;
 }

@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "watch-sass": "node-sass sass/main.scss css/style.css --watch",
+    "compile-sass": "node-sass sass/main.scss css/style.comp.css"
   },
   "private": true,
   "dependencies": {
@@ -23,8 +25,11 @@
     "bootstrap": "^4.3.1",
     "firebase": "^6.4.2",
     "jquery": "^3.4.1",
+    "ngx-webstorage": "^4.0.1",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^8.17.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

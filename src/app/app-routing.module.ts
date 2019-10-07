@@ -8,12 +8,14 @@ import { LoginComponent } from './components/public/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'nuevoUsuario', component: NuevoUsuarioComponent},
   { path: 'perfiles', component: PerfilesComponent},
+  { path: 'navbar:id', component: NavbarComponent},
   { path: 'perfil', component: PerfilComponent},
   { path: 'principal', component: PrincipalComponent},
   { path: 'requerimientos', component: RequerimientosComponent},

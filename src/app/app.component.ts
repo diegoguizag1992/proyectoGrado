@@ -1,3 +1,4 @@
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   loader = true;
 
 
-  constructor() { }
+  constructor(public userService: AuthServiceService) { }
 
 
   ngOnInit(): void {
