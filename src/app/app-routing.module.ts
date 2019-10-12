@@ -1,3 +1,4 @@
+import { Error404Component } from './components/shared/error404/error404.component';
 import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
 import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
@@ -9,6 +10,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+
 
 
 const routes: Routes = [
@@ -16,12 +19,13 @@ const routes: Routes = [
   { path: 'nuevoUsuario', component: NuevoUsuarioComponent},
   { path: 'perfiles', component: PerfilesComponent},
   { path: 'navbar:id', component: NavbarComponent},
-  { path: 'perfil', component: PerfilComponent},
+  { path: 'JBolivar', component: PerfilComponent},
   { path: 'principal', component: PrincipalComponent},
   { path: 'requerimientos', component: RequerimientosComponent},
+  { path: 'error404', component: Error404Component},
   { path: 'requerimiento', component: RequerimientoComponent},
   { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
-  { path: '**', redirectTo: 'login' }
+  // { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

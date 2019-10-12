@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LocalStorage } from 'ngx-webstorage';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-perfiles',
@@ -11,8 +13,12 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class PerfilesComponent implements OnInit {
 
-  constructor( private activatedRoutes: ActivatedRoute,
-               private auth: AuthServiceService) { }
+  perfiles: Observable<any[]>;
+  constructor(db: AngularFirestore) {
+  this.perfiles = db.collection('perfiles').valueChanges();
+      console.log(this.perfiles);
+
+  }
 
   ngOnInit() {
 

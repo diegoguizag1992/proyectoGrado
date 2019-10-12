@@ -23,6 +23,8 @@ import { environment } from 'src/environments/environment';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
 import { AuthServiceService } from './services/auth-service.service';
 import {NgxWebstorageModule} from 'ngx-webstorage';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { Error404Component } from './components/shared/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
     RespuestaRequerimientosComponent,
     RequerimientosComponent,
     SpinnerComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,

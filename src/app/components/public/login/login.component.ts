@@ -27,38 +27,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
-          console.log('Login',this.datosLogin);
-
-
-
-
-
-    // this.auht.datos()
-    // .subscribe(data => {
-    //   this.user = data;
-    //   this.userDetails = data;
-
-    //   if (data == null) {
-
-    //   } else {
-    //     this.router.navigate(['/perfiles']);
-    //   }
-    //   console.log('Datos en el login',data);
-
-    //   // console.log(this.user.displayName);
-    // })
   }
-
-  logOut(){
-    this.auht.logOut();
-  }
-
+  // Login Personal
   loginPersonal() {
     this.router.navigate(['/nuevoUsuario']);
-
   }
 
-  // Ingreso con GitHub
+  // Login con GitHub
   signInWithGithub() {
     this.auht.signInWithGithub()
     .then((res) => {
@@ -70,7 +45,7 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  // Ingreso con Google
+  // Login con Google
    loginWithGoogle() {
     this.auht.signInWithGoogle()
   }

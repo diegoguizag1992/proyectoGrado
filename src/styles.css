@@ -13,11 +13,10 @@ html, body{
 }
 
 img{
-  display: inline;
-  position: absolute;
+  display: flex;
   right: 20%;
   top : 100px;
-  height : 500px;
+  height : 460px;
   left : 230px;
   width : 900px;
 }
@@ -47,6 +46,7 @@ img{
 }
 
 .error404{
+  display: flex;
   display: inline;
   width: 800px;
   height: 400px;

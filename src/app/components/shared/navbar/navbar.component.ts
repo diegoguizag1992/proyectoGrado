@@ -58,89 +58,37 @@ export class NavbarComponent implements OnInit, OnDestroy {
         } else {
           console.log('Si hay datos', this.usuario);
           this.registro = 'A Ingresado a Jbolivar';
-          this.ver = true;
           this.storage.store('datos', this.usuario);             // Guarda datos en local Storage
           this.attribute = this.storage.retrieve('datos');       // Trae los datos que estan almacenados en LocalStorage
-          this.router.navigate(['/perfiles']);
+          this.router.navigate(['/JBolivar']);
+          return this.ver = true;
         }
       })
-
-
-
-
-    //   this.datosUsuario = this.auth.datos();
-    //   this.datosUsuario.subscribe(
-    //     (user) => {
-    //       if (user) {
-    //         this.userDetails = user;
-    //         this.usuario.uid = user.uid;
-    //         this.usuario.displayName = user.displayName;
-    //         this.usuario.email = user.email;
-    //         this.usuario.photoURL = user.photoURL;
-    //       }
-    //       else {
-    //         this.userDetails = null;
-    //       }
-
-    //       if (Object.keys(this.usuario).length === 0) {
-    //         this.registro = 'No esta registrado';
-    //         console.log('No hay datos en el navbar');
-    //       } else {
-    //         this.ver = true;
-    //         this.registro = 'A ingresado a JBolivar';
-    //         this.attribute = this.usuario;
-    //         console.log(this.attribute);
-    //         this.storage.store('datosLogin', this.attribute);
-    //       }
-    //     })
-    // }
   }
 
-
-
-  // localStorage() {
-  //     this.storage.store('datos', this.usuario);
-  //     // console.log(this.usuario);
-
-  //     this.attribute = this.storage.retrieve('datos');
-  //     // console.log(this.attribute);
-
-  //     if(Object.keys(this.attribute).length === 0) {
-  //     // console.log('No esta registrado');
-  //     return this.registro = 'No esta registrado';
-  //   } else {
-  //     // console.log('Si hay datos en el nabvar 2019');
-  //     this.ver = true
-  //     this.registro = 'A ingresado a JBolivar'
-  //     // this.router.navigate(['/perfiles']);
-  //     return this.attribute;
-  //   }
-  // }
-
   salir() {
-    console.log('entro');
     this.storage.clear('datos');
-    this.ver = false;
+
     this.registro = 'Ingrese a JBolivar';
     this.usuario.displayName = '';
     this.usuario.email = '';
     // this.infoLoginHtml = false;
     // this.infoLoginHtmlDos = false;
-    this.router.navigate(['/login']);
-    this.auth.logOut();
-    return;
+    this.auth.logout();
+    return this.ver = false;
   }
 
-  salida() {
-    this.auth.logout();
-    this.ngOnDestroy();
-  }
 
   ngOnDestroy() {
     // console.log('Destroy');
     // this.clientesSubscripcion.unsubscribe();
     console.log('NavbarComponent:OnDestroy');
 
+  }
+
+  perfiles() {
+    alert('hola')
+      this.router.navigate(['/perfiles']);
   }
 
 }

@@ -15,15 +15,15 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#"
-          >Home <span class="sr-only">(current)</span></a
+          > <span class="sr-only">(current)</span></a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" [routerLink]="['/perfiles']">Perfiles</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
-      </li>
+      </li> -->
     </ul>
 
   </div>
@@ -43,7 +43,7 @@
                 <!-- <p href="">{{attribute.photoURL}}</p> -->
                 <br>
                 <div class="d-flex">
-                    <button class="btn btn-info push-right" (click)="salir()" >Salir.</button>
+                    <button class="btn btn-info push-right" (click)="salir()">Salir.</button>
                   </div>
               </div>
             </div>
