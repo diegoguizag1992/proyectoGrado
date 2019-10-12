@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'error404', component: Error404Component},
   { path: 'requerimiento', component: RequerimientoComponent},
   { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
-  // { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'error404' }
 ];
 
 @NgModule({

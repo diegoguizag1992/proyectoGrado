@@ -46,18 +46,17 @@ img{
 }
 
 .error404{
-  display: flex;
-  display: inline;
-  width: 800px;
-  height: 400px;
-  top: 170px;
-  left: 300px;
-}
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    top: 110px;
+    left: 250px;
+  }
 
-#error404Button{
-  position:absolute;
-  top: 480px;
-  left: 335px;
+.error404Button{
+  position: relative;
+  top: 313px;
+  left: 180px;
 }
 
 .centrado{
