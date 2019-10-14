@@ -65,12 +65,16 @@ img{
 }
 
 .solicitudLogo{
-  display: inline;
-  width: 800px;
-  height: 250px;
-  top: 230px;
-  left: 450px;
+  width: 400px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.divSolicitudLogo{
+  width: 400px;
+  height: 350px;
 }
 
 .div{

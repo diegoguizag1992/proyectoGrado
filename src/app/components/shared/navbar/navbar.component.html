@@ -19,11 +19,29 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/perfiles']">Perfiles</a>
+          <nav class="navbar">
+        <a class="nav-link" (click)="perfiles()" *ngIf="perfil">Perfiles</a>
+        </nav>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li> -->
+      <li class="nav-item">
+
+        <nav class="navbar">
+          <a class="nav-link dropdown-toggle text-black" href="#" id="navbardrop" data-toggle="dropdown" *ngIf="juridica">
+            Juridica
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" [routerLink]="['/crearRequerimientos']"> <i class="fas fa-file-alt text-success"></i>
+              &nbsp;
+              &nbsp; Crear Requerimeinto</a>
+            <a class="dropdown-item" [routerLink]="['/bandejaEntrada']"> <i class="fas fa-check text-success"></i> &nbsp;
+              &nbsp;
+              Bandeja de Entrada </a>
+            <a class="dropdown-item" [routerLink]="['/consultaRequerimientos']"> <i class="fas fa-search text-success"></i>
+              &nbsp; &nbsp; Consulta Requerimientos </a>
+
+          </div>
+        </nav>
+      </li>
     </ul>
 
   </div>

@@ -19,6 +19,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   ver = false;
+  perfil = false;
+  juridica = false;
   attribute;
   private user: Empleados = {};
   private userDetails: firebase.User = null;
@@ -30,6 +32,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   clientesSubscripcion: Subscription;
   infoLoginHtml = true;
   infoLoginHtmlDos = true;
+  @Input() registros: string;
 
   constructor(public auth: AuthServiceService,
     private storage: LocalStorageService,
@@ -38,6 +41,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private activatedRoutes: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.registros);
 
     this.auth.datos()
       .subscribe(user => {
@@ -61,6 +65,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.storage.store('datos', this.usuario);             // Guarda datos en local Storage
           this.attribute = this.storage.retrieve('datos');       // Trae los datos que estan almacenados en LocalStorage
           this.router.navigate(['/JBolivar']);
+          this.perfil = true;
           return this.ver = true;
         }
       })
@@ -87,8 +92,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   perfiles() {
-    alert('hola')
-      this.router.navigate(['/perfiles']);
+    this.perfil = false;
+    this.router.navigate(['/perfiles']);
   }
 
 }

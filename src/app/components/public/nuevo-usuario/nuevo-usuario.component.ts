@@ -20,13 +20,8 @@ export class NuevoUsuarioComponent implements OnInit {
   }
 
   redirigirLogin() {
+    this.router.navigate(["./login"]);
   }
-
-  //   loginEmpleado(){
-  //     console.log(this.empleados);
-  //     this.servicioAuth.login(this.empleados);
-  //   }
-  // }
 
   loginEmpleado() {
     this.servicioAuth.login(this.empleados.email, this.empleados.password);
