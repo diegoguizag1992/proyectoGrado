@@ -1,3 +1,4 @@
+import { ListaRequerimientosComponent } from './components/auth/requerimientos/lista-requerimientos/lista-requerimientos.component';
 import { Error404Component } from './components/shared/error404/error404.component';
 import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'error404', component: Error404Component},
   { path: 'requerimiento', component: RequerimientoComponent},
   { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
+  { path: 'listaRequerimientos', component: ListaRequerimientosComponent},
   { path: '**', redirectTo: 'error404' }
 ];
 

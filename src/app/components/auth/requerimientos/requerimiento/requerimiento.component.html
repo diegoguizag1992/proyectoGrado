@@ -1,1 +1,105 @@
-<p>requerimiento works!</p>
+
+<div class="container col-8 requerimiento">
+    <div class="card text-center requerimiento">
+        <div class="card-header">
+            <div class="text-secondary">Nuevo Requerimiento. </div>
+        </div>
+
+
+        <div class="card-body">
+            <div class="container ">
+
+                <div class="input-group-prepend col-5 numeroRequerimiento">
+                    <span class="input-group-text ">
+                        <div style=" height: 17px;"> No. Requerimiento.</div>
+                    </span>
+                    <input name="nuReq" id="nuReq" type="number" aria-label="First name" class="form-control">
+                </div>
+            </div>
+            <br>
+            <div class="container tex-left">
+                <div class="tipoRequer"><i class="fas fa-stream text-success"></i> &nbsp; &nbsp; Tipo de
+                    Requerimiento:</div>
+
+                <div class="fechaRequer"><i class="far fa-calendar-alt text-success"></i> &nbsp; &nbsp; Fecha de
+                    Requerimiento:</div>
+                </div>
+
+            <!-- Lista Tipo de Requerimiento -->
+
+          <div class="container  selectMenu" style="font-size: 16px;">
+              <mat-form-field style="width: 250px">
+              <mat-label></mat-label>
+              <mat-select>
+                <mat-option  *ngFor="let requerimiento of tipoRequerimiento | async" [value]="requerimiento.name">{{requerimiento.name}} {{requerimiento.username}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+            <!-- Calendario -->
+
+            <div class="container calendario">
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha requerimiento">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <!-- Lista Responsables -->
+            <div class="responsable selectMenuDos"><i class="fas fa-user text-success"></i> &nbsp; &nbsp;
+                Responsable </div>
+
+             <div class="container  selectResponsables" style="width: 280px; font-size: 16px;">
+                 <mat-form-field style="width: 250px">
+                 <mat-label> </mat-label>
+                  <mat-select>
+                    <mat-option  *ngFor="let usuario of usuarios |async" value="requerimiento.name">{{usuario.name}} - {{usuario.username}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+          <!-- Asunto -->
+
+            <div class="asunto"><i class="far fa-edit text-success"></i> &nbsp; &nbsp; Asunto:
+            </div>
+
+            <!-- <div class="asuntoDos">
+                <input name="asuntoDos" id="nuReq" type="text" aria-label="First name" class="form-control">
+            </div> -->
+
+            <div class="asuntoDos">
+              <mat-form-field appearance="outline" style="width: 600px">
+                <mat-label>. . . </mat-label>
+                <input matInput placeholder="Asunto">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+
+          <!-- Observaciones -->
+
+            <div class="observaciones"><i class="far fa-edit text-success"></i> &nbsp; &nbsp; Observaciones:
+            </div>
+            <!-- <div class="container observacionesDos col-11 ">
+                <textarea name="" id="" cols="30" rows="3" class="form-control "
+                    style="font-size: 14px"></textarea>
+            </div> -->
+
+            <div class="observacionesDos">
+              <mat-form-field appearance="outline" style="width: 600px">
+                <mat-label>. . . </mat-label>
+                <input matInput placeholder="Observaciones">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-outline-success boton" data-dismiss="modal"
+                    onclick=""> Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+

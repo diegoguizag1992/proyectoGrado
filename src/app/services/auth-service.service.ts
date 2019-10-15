@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { $ } from 'protractor';
 import swal from 'sweetalert';
 import { LocalStorageService, LocalStorage } from 'ngx-webstorage';
+import { NavbarComponent } from '../components/shared/navbar/navbar.component';
 
 @Injectable({
   providedIn: 'root'
@@ -115,6 +116,11 @@ export class AuthServiceService {
       // ...
     });
 
+  }
+
+  menuRequerimientos(dato){
+      console.log(dato);
+      return dato;
   }
 
 }

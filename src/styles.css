@@ -64,19 +64,6 @@ img{
   margin-top:160px;
 }
 
-.solicitudLogo{
-  width: 400px;
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.divSolicitudLogo{
-  width: 400px;
-  height: 350px;
-}
-
 .div{
  background: #379fe8;
   top: 70px;

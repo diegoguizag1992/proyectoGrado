@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {HttpClientModule} from '@angular/common/http';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,10 @@ import { AuthServiceService } from './services/auth-service.service';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { Error404Component } from './components/shared/error404/error404.component';
+
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListaRequerimientosComponent } from './components/auth/requerimientos/lista-requerimientos/lista-requerimientos.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +46,8 @@ import { Error404Component } from './components/shared/error404/error404.compone
     SpinnerComponent,
     NavbarComponent,
     FooterComponent,
-    Error404Component
+    Error404Component,
+    ListaRequerimientosComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +60,12 @@ import { Error404Component } from './components/shared/error404/error404.compone
     AngularFireDatabaseModule,
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [AuthServiceService],
   bootstrap: [AppComponent]

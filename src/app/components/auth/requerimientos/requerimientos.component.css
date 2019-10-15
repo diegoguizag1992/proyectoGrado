@@ -1,0 +1,32 @@
+.matMenu {
+  position: absolute;
+  top: 25px;
+  left: 120px;
+  margin-top: -4 !important;
+}
+
+.solicitudLogo {
+  width: 500px;
+  height: 4500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/assets/images/imagenMazo.png");
+  background-repeat: no-repeat;
+}
+
+.moduloJuridica{
+  display: flex;
+  display: inline;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+/* .divSolicitudLogo {
+  width: 400px;
+  height: 350px;
+} */
+
+.div{
+
+}

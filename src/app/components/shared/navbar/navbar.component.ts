@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   infoLoginHtml = true;
   infoLoginHtmlDos = true;
   @Input() registros: string;
+  hola;
 
   constructor(public auth: AuthServiceService,
     private storage: LocalStorageService,
@@ -41,7 +42,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private activatedRoutes: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.registros);
+    this.hola = this.auth.menuRequerimientos(this.hola);
+    console.log(this.hola);
 
     this.auth.datos()
       .subscribe(user => {

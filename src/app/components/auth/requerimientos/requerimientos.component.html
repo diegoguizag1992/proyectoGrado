@@ -1,4 +1,18 @@
+<div class="container matMenu">
+    <button  mat-button [matMenuTriggerFor] ="menu"><h6>Requerimientos</h6></button>
+    <mat-menu #menu="matMenu" class="matMenu">
+      <button  mat-menu-item (click)="crearRequerimientos()"> Crear requerimiento </button>
+      <button  mat-menu-item (click)="listaRequerimientos()"> Lista requerimeintos </button>
+      <button  mat-menu-item (click)="respuestaRequerimientos()"> Respuesta requerimeintos </button>
+    </mat-menu>
 
-  <div class="container solicitudLogo mt-5">
-      <img class="divSolicitudLogo" src="./assets/images/imagenMazo.png" alt="Error404">
-  </div>
+</div>
+<div class="container  mt-5">
+  <a> &nbsp; &nbsp; </a>
+<div class="container  solicitudLogo mt-5">
+    <a style="width: 100%; height: 100;"></a>
+</div>
+</div>
+<!-- <div class="container solicitudLogo mt-5">
+    <img class="divSolicitudLogo" src="./assets/images/imagenMazo.png" alt="Error404">
+</div> -->
