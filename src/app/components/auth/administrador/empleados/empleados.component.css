@@ -1,0 +1,10 @@
+.divEmpleados{
+  display: flex;
+  flex-direction: row;
+  /* flex-grow: 2; */
+  justify-content: space-evenly;
+  /* width: 250px;  Or whatever */
+  /* height: 100px; Or whatever */
+  margin: auto;
+}
+

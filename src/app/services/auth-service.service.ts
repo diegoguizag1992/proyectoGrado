@@ -71,7 +71,11 @@ export class AuthServiceService {
 
   signInWithGoogle() {
     return this.firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider())
+      new firebase.auth.GoogleAuthProvider()).then(() => {
+        window.location.assign('/JBolivar');
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   logout() {
@@ -94,7 +98,11 @@ export class AuthServiceService {
   // Login email y password
 
   async login(email: string, password: string) {
-    return await this.firebaseAuth.auth.signInWithEmailAndPassword(email, password);
+    return await this.firebaseAuth.auth.signInWithEmailAndPassword(email, password).then(() => {
+      this.router.navigate(["./administrador"])
+    }, (error) => {
+      console.log(error);
+    });
   }
 
 

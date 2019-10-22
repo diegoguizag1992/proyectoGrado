@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="container d-flex justify-content-center pt-5">
+        <div class="card border-secondary" style="width: 18rem;">
+          <div class="card-header text-center">Creación Perfil</div>
+          <div class="card-body text-secondary text-center">
+              <form (ngSubmit)="crear()">
+                  <!-- <h5 class="card-title">Nombre:</h5>
+                  <input type="text" placeholder="Nombre ..."
+                         value="nombre" class="form-control" name="nombre"
+                         [(ngModel)]="empleados.nombre" required/>
+                  <br> -->
+                  <h6 class="card-title">Nombre perfil:</h6>
+                  <input type="text"
+                         class="form-control" name="name"
+                         [(ngModel)]="informacionPerfil.name" required/>
+                  <br>
+                  <h6 class="card-title">Ruta perfil:</h6>
+                  <input type="text"
+                         class="form-control" name="path"
+                         [(ngModel)]="informacionPerfil.path" required/>
+                  <br> <br>
+                  <button class="btn btn-info" type="submit"> crear </button>
+                  &nbsp; &nbsp;
+                  <button class="btn btn-info" type="button" (click)="atras()"> Atras </button>
+                  <br>
+                </form>
+          </div>
+        </div>
+      </div>
+      <br> <br>
+  </div>
+  <br>
+

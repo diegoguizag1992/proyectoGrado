@@ -1,6 +1,6 @@
 export interface TipoRequerimiento {
   id?: string;
-  nombre?: number;
+  name?: string;
   codigo_tipoRequerimiento?: number;
 }
 

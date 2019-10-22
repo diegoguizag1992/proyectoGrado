@@ -9,10 +9,12 @@ import { NuevoUsuarioComponent } from './components/public/nuevo-usuario/nuevo-u
 import { LoginComponent } from './components/public/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {HttpClientModule} from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +29,16 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { Error404Component } from './components/shared/error404/error404.component';
 
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatNativeDateModule, MatProgressBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaRequerimientosComponent } from './components/auth/requerimientos/lista-requerimientos/lista-requerimientos.component';
+import { AdministradorComponent } from './components/auth/administrador/administrador.component';
+import { TipoRequerimientoComponent } from './components/auth/administrador/tipo-requerimiento/tipo-requerimiento.component';
+import { EmpleadosComponent } from './components/auth/administrador/empleados/empleados.component';
+import { CrearPerfilComponent } from './components/auth/administrador/crear-perfil/crear-perfil.component';
+import { Routes, RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -48,9 +57,16 @@ import { ListaRequerimientosComponent } from './components/auth/requerimientos/l
     FooterComponent,
     Error404Component,
     ListaRequerimientosComponent,
+    AdministradorComponent,
+    TipoRequerimientoComponent,
+    EmpleadosComponent,
+    CrearPerfilComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatProgressBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -61,13 +77,21 @@ import { ListaRequerimientosComponent } from './components/auth/requerimientos/l
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     MatInputModule,
-    MatButtonModule,
     MatSelectModule,
     MatIconModule,
-    BrowserAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgbModule,
+    ReactiveFormsModule,
   ],
-  providers: [AuthServiceService],
-  bootstrap: [AppComponent]
-})
+  providers: [
+    AuthServiceService,
+    MatDatepickerModule
+  ],
+  bootstrap: [AppComponent
+    ],
+  exports: [
+    RouterModule
+  ]})
 export class AppModule { }

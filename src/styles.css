@@ -146,13 +146,7 @@ section{
   left: 25px;
 }
 
-.requerimiento{
-  position: absolute;
-  top: 65px;
-  left: 140px;
-  height: 555px;
-  width: 800px;
-}
+
 
 .tipoRequer{
   position: absolute;
@@ -162,43 +156,13 @@ section{
 }
 
 .fechaRequer{
+  display: flex;
   position: absolute;
   top: 160px;
   left: 470px;
 }
 
 
-.observaciones{
-  position: absolute;
-  top: 375px;
-  left: 55px;
-}
-
-.observacionesDos{
-  position: absolute;
-  top: 410px;
-  left: 85px;
-  font-size: 14px;
-
-}
-
-.selectMenu{
-  position: absolute;
-  top: 145px;
-  left: 55px;
-  width: 325px;
-}
-
-.selectMenuDos{
-  position: absolute;
-  top: 235px;
-  left:  40px;
-}
-.selectResponsables{
-  position: absolute;
-  top: 220px;
-  left:  80px;
-}
 
 .calendario{
   position: absolute;
@@ -206,18 +170,6 @@ section{
   left: 360px;
   width:200px;
 
-}
-
-.responsable{
-  position: absolute;
-  top: 205px;
-  left: 55px;
-}
-
-.asunto{
-  position: absolute;
-  top: 280px;
-  left: 55px;
 }
 
 .asuntoDos{
@@ -248,12 +200,7 @@ section{
   width: 60px;
 }
 
-.boton{
-  position: absolute;
-  top: 490px;
-  left: 350px;
-  width: 90px;
-}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

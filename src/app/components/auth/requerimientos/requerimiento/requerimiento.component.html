@@ -1,104 +1,137 @@
 
-<div class="container col-8 requerimiento">
+<div class="container col-8 requerimiento mt-3">
     <div class="card text-center requerimiento">
         <div class="card-header">
             <div class="text-secondary">Nuevo Requerimiento. </div>
         </div>
-
-
         <div class="card-body">
+          <form  (ngSubmit)="crearRequerimiento()">
             <div class="container ">
-
-                <div class="input-group-prepend col-5 numeroRequerimiento">
-                    <span class="input-group-text ">
-                        <div style=" height: 17px;"> No. Requerimiento.</div>
-                    </span>
-                    <input name="nuReq" id="nuReq" type="number" aria-label="First name" class="form-control">
-                </div>
+              <div class="numeroRequerimiento"><i class="fa fa-hand-o-right text-info" aria-hidden="true"></i>
+                &nbsp; No. requerimiento:</div>
+                <input type="text" name="numero" style="width: 70px;" class="form-control numeroReque" [(ngModel)]="requerimiento.numero" value="{{requerimiento.numero}}">
             </div>
             <br>
-            <div class="container tex-left">
-                <div class="tipoRequer"><i class="fas fa-stream text-success"></i> &nbsp; &nbsp; Tipo de
-                    Requerimiento:</div>
-
-                <div class="fechaRequer"><i class="far fa-calendar-alt text-success"></i> &nbsp; &nbsp; Fecha de
-                    Requerimiento:</div>
-                </div>
-
-            <!-- Lista Tipo de Requerimiento -->
-
-          <div class="container  selectMenu" style="font-size: 16px;">
-              <mat-form-field style="width: 250px">
-              <mat-label></mat-label>
-              <mat-select>
-                <mat-option  *ngFor="let requerimiento of tipoRequerimiento | async" [value]="requerimiento.name">{{requerimiento.name}} {{requerimiento.username}} </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-            <!-- Calendario -->
-
-            <div class="container calendario">
-              <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Fecha requerimiento">
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </div>
-
-            <!-- Lista Responsables -->
-            <div class="responsable selectMenuDos"><i class="fas fa-user text-success"></i> &nbsp; &nbsp;
-                Responsable </div>
-
-             <div class="container  selectResponsables" style="width: 280px; font-size: 16px;">
-                 <mat-form-field style="width: 250px">
-                 <mat-label> </mat-label>
-                  <mat-select>
-                    <mat-option  *ngFor="let usuario of usuarios |async" value="requerimiento.name">{{usuario.name}} - {{usuario.username}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
+              <div class="container tipoRequerimiento">
+                  <div class="tipoReque mt-4"><i class="fa fa-check-square-o text-info" aria-hidden="true"></i> &nbsp; Tipo de
+                      Requerimiento:</div>
+                  <div class="fechaReque mt-4"><i class="fa fa-calendar-o text-info" aria-hidden="true"></i> &nbsp; &nbsp; Fecha de
+                      Requerimiento:</div>
               </div>
 
-          <!-- Asunto -->
-
-            <div class="asunto"><i class="far fa-edit text-success"></i> &nbsp; &nbsp; Asunto:
+    <!-- Lista Tipo de Requerimiento -->
+              <div class="container selectTipoReuqe">
+                <select class="form-control"  id="name" required
+                        [(ngModel)]="requerimiento.name" name="name">
+                      <option *ngFor="let lista of tipoRequerimientos| async" [value]="lista.name">{{lista.name}}</option>
+                </select>
+              </div>
+    <!-- Fecha requerimiento -->
+                <div class="form-group fechaRequerimiento">
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd" required
+                             name="dp" [(ngModel)]="requerimiento.fecha" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                </div>
+    <!-- Lista Responsables -->
+            <div class="divEmpleado"><i class="fa fa-user-o text-info" aria-hidden="true"></i>
+              &nbsp; &nbsp;
+              Responsable </div>
+              <div class="selectEmpleado mt-5">
+                  <select class="form-control"  id="nombre" required
+                  [(ngModel)]="requerimiento.empleado" name="nombre">
+                  <option *ngFor="let requerimiento of listaResponsable | async" [value]="requerimiento.nombre">{{requerimiento.nombre}} {{requerimiento.apellido}}</option>
+                  </select>
+              </div>
+     <!-- Asunto  -->
+            <div class="asunto"><i class="fa fa-folder-o text-info" aria-hidden="true"></i>
+              &nbsp; &nbsp; Asunto:
+              <input name="nuReq" [(ngModel)]="requerimiento.asunto" id="nuReq" type="text" aria-label="First name" class="form-control inputAsunto">
             </div>
+     <!-- observaciones -->
+            <div class="divObservaciones"><i class="fa fa-pencil-square-o text-info" aria-hidden="true"></i>
+              &nbsp; &nbsp; Observaciones:
+            </div>
+              <textarea [(ngModel)]="requerimiento.observaciones" class="form-control observaciones" name="requerimiento.observaciones" rows="2"></textarea>
+            <button type="submit" class="btn btn-outline-warning botonCrear">Crear</button>
+          </form>
+
+    <!-- Button Adjuntar documento -->
+            <button type="button" class="btn btn-outline-info botonAdjun" data-toggle="modal" data-target="#exampleModal">
+              Adjuntar Doc.
+            </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Adjuntar documento</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              <div class="modal-body">
+            <div class="container d-flex justify-content-center">
+                <p>Nombre archivo: </p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <input class="form-control" style="width: 200px;" type="text" placeholder="Nombre archivo. ." [(ngModel)]="nombreArchivo">
+              </div>
+                <br>
+              <div>
+                <input type="file" (change)="uploadFile($event)">
+                <br>
+              </div>
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Guardar</button>
+              </div>
+            </div>
+           </div>
+        </div>
+
+          <!-- <input class="botonAdjun" type="text" [(ngModel)]="nombreArchivo">
+          <input class="botonAdjuntar" type="file" (change)="uploadFile($event)"> -->
+
+          <!-- <div class="botonAdjuntarDos">{{ uploadPercent | async }}</div> -->
+          <!-- <a class="botonAdjuntarTres" [href]="downloadURL | async">{{ downloadURL | async }}</a> -->
 
             <!-- <div class="asuntoDos">
                 <input name="asuntoDos" id="nuReq" type="text" aria-label="First name" class="form-control">
             </div> -->
 
-            <div class="asuntoDos">
+            <!-- <div class="asuntoDos">
               <mat-form-field appearance="outline" style="width: 600px">
                 <mat-label>. . . </mat-label>
                 <input matInput placeholder="Asunto">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint></mat-hint>
               </mat-form-field>
-            </div>
+            </div> -->
 
           <!-- Observaciones -->
 
-            <div class="observaciones"><i class="far fa-edit text-success"></i> &nbsp; &nbsp; Observaciones:
-            </div>
+
             <!-- <div class="container observacionesDos col-11 ">
                 <textarea name="" id="" cols="30" rows="3" class="form-control "
                     style="font-size: 14px"></textarea>
             </div> -->
 
-            <div class="observacionesDos">
+            <!-- <div class="observacionesDos">
               <mat-form-field appearance="outline" style="width: 600px">
                 <mat-label>. . . </mat-label>
                 <input matInput placeholder="Observaciones">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint></mat-hint>
               </mat-form-field>
-            </div>
+            </div> -->
 
-            <div>
-                <button type="button" class="btn btn-outline-success boton" data-dismiss="modal"
-                    onclick=""> Crear</button>
-            </div>
+            <!-- <button class="btn btn-info" type="button" (click)="atras()"> Atras </button> -->
+            <br>
         </div>
     </div>
 </div>

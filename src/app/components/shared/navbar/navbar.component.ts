@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.registro = 'A Ingresado a Jbolivar';
           this.storage.store('datos', this.usuario);             // Guarda datos en local Storage
           this.attribute = this.storage.retrieve('datos');       // Trae los datos que estan almacenados en LocalStorage
-          this.router.navigate(['/JBolivar']);
+          // this.router.navigate(['/JBolivar']);
           this.perfil = true;
           return this.ver = true;
         }

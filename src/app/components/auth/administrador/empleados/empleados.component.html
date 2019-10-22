@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="container d-flex justify-content-center pt-5">
+        <div class="card border-info" style="width: 48rem;">
+          <div class="card-header text-center">Creación empleado</div>
+          <div class="card-body text-info text-center">
+              <form (ngSubmit)="crearEmpleado()">
+                <div class="container divEmpleados mt-3">
+                      Nombres:<input type="text" placeholder="Nombres ..."
+                              class="form-control" name="nombre"
+                              [(ngModel)]="empleado.nombre" required/>
+                      <a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
+                      Apellidos:<input type="text" placeholder="Apellidos ..."
+                              class="form-control" name="nombre"
+                              [(ngModel)]="empleado.apellido" required/>
+                       <br> <br>
+                </div>
+                <div class="container divEmpleados mt-3">
+                    Correo:<input type="text" placeholder="Correo ..."
+                            class="form-control" name="nombre"
+                            [(ngModel)]="empleado.correo" required/>
+                    <a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
+                    Departamento:<input type="text" placeholder="Departamento ..."
+                            class="form-control" name="nombre"
+                            [(ngModel)]="empleado.departamento" required/>
+                     <br> <br>
+                </div>
+                  <button class="btn btn-warning" type="submit"> Crear </button>
+                  &nbsp; &nbsp;
+                  <button class="btn btn-warning" type="button" (click)="atras()"> Atras </button>
+                  <br>
+
+              </form>
+          </div>
+        </div>
+      </div>
+      <br> <br>
+  </div>
+  <br> <br>
+

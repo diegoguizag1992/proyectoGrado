@@ -19,12 +19,13 @@ export class NuevoUsuarioComponent implements OnInit {
   ngOnInit() {
   }
 
-  redirigirLogin() {
+  atras() {
     this.router.navigate(["./login"]);
   }
 
   loginEmpleado() {
     this.servicioAuth.login(this.empleados.email, this.empleados.password);
+    this.router.navigate(["./administrador"])
   }
 }
 

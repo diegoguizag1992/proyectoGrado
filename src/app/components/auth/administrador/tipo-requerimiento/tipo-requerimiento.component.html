@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="container d-flex justify-content-center pt-5">
+        <div class="card border-info" style="width: 18rem;">
+          <div class="card-header text-center">Tipo requerimiento</div>
+          <div class="card-body text-info text-center">
+              <form (ngSubmit)="crear()">
+                  <!-- <h5 class="card-title">Nombre:</h5>
+                  <input type="text" placeholder="Nombre ..."
+                         value="nombre" class="form-control" name="nombre"
+                         [(ngModel)]="empleados.nombre" required/>
+                  <br> -->
+                  <h6 class="card-title">Tipo:</h6>
+                  <input type="text"
+                         value="tipoRequerimiento" class="form-control" name="tipoRequerimiento"
+                         [(ngModel)]="tipoRequerimiento.name" required/>
+                  <br> <br>
+                  <button class="btn btn-warning" type="submit"> Crear </button>
+                  &nbsp; &nbsp;
+                  <button class="btn btn-warning" type="button" (click)="atras()"> Atras </button>
+                  <br>
+                </form>
+          </div>
+        </div>
+      </div>
+      <br> <br>
+  </div>
+  <br> <br>
+

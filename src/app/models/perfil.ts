@@ -1,5 +1,6 @@
 export interface Perfil {
   id?: string;
-  nombre?: number;
+  name?: string;
+  path?: string;
   codigo_perfil?: number;
 }
