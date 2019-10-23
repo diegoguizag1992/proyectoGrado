@@ -8,8 +8,8 @@ import { RequerimientoServiceService } from 'src/app/services/requerimiento-serv
 import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
-
-
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,8 +31,9 @@ export class RequerimientoComponent implements OnInit {
 
 
   constructor(private servicioRequerimiento: RequerimientoServiceService,
-    private storage: AngularFireStorage,
-    private db: AngularFireDatabase) {
+              private storage: AngularFireStorage,
+              private db: AngularFireDatabase,
+              private router: Router) {
 
     // Listado tipo requerimientos
     this.tipoRequerimientos = this.servicioRequerimiento.informacionTipoRequerimiento();
@@ -40,7 +41,7 @@ export class RequerimientoComponent implements OnInit {
     this.listaResponsable = this.servicioRequerimiento.informacionEmpleados();
 
     // Trae el numero de consecutivo de la base de datos
-    this.item =  this.servicioRequerimiento.getCat();
+    this.item = this.servicioRequerimiento.getCat();
     this.item.subscribe(data => {
       this.numero = data;
       this.requerimiento.numero = this.numero.numero;
@@ -56,21 +57,162 @@ export class RequerimientoComponent implements OnInit {
   crearRequerimiento() {
 
 
-
-
-    // Crea registro de requerimiento en la base d edatos.
-    this.servicioRequerimiento.crearRequerimiento(this.requerimiento);
-
-    // Crea contador auto incrementable en firebasse
-    const db = firebase.firestore();
-    const increment = firebase.firestore.FieldValue.increment(1);
-    // Document reference
-    const storyRef = db.collection('requerimientos').doc('--stats--');
-    // Update read count
-    storyRef.update({ numero: increment });
-    console.log(this.requerimiento);
-
-
+    if (this.requerimiento.name == null) {
+      this.requerimiento.name = null;
+      Swal.fire(
+        '',
+        `El tipo de requerimiento no puede ser nulo`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.name.length <= 0) {
+      Swal.fire(
+        '',
+        `El tipo de requerimiento no puede ser vacio`,
+        'warning'
+      );
+      this.requerimiento.name = null;
+      return;
+    }
+    if (this.requerimiento.name === undefined) {
+      Swal.fire(
+        '',
+        'El tipo de requerimiento no puede ser vacio',
+        'info'
+      );
+      return;
+    }
+    if (this.requerimiento.empleado == null) {
+      this.requerimiento.empleado = null;
+      Swal.fire(
+        '',
+        `El nombre del responsable no puede ser nulo`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.empleado.length <= 0) {
+      Swal.fire(
+        '',
+        `El nombre del responsable no puede ser vacio`,
+        'warning'
+      );
+      this.requerimiento.empleado = null;
+      return;
+    }
+    if (this.requerimiento.empleado === undefined) {
+      Swal.fire(
+        '',
+        'El nombre del responsable no puede ser vacio',
+        'info'
+      );
+      return;
+    }
+    if (this.requerimiento.asunto == null) {
+      this.requerimiento.asunto = null;
+      Swal.fire(
+        '',
+        `El asunto del requerimiento no puede ser nulo`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.asunto.length <= 0) {
+      Swal.fire(
+        '',
+        `El asunto del requerimiento no puede ser vacio`,
+        'warning'
+      );
+      this.requerimiento.asunto = null;
+      return;
+    }
+    if (this.requerimiento.asunto === undefined) {
+      Swal.fire(
+        '',
+        'El asunto del requerimineto no puede ser vacio',
+        'info'
+      );
+      return;
+    }
+    if (this.requerimiento.observaciones == null) {
+      this.requerimiento.observaciones = null;
+      Swal.fire(
+        '',
+        `Las observaciones no puede ser nula`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.observaciones.length <= 0) {
+      Swal.fire(
+        '',
+        `Las observaciones no pueden ser vacias`,
+        'warning'
+      );
+      this.requerimiento.observaciones = null;
+      return;
+    }
+    if (this.requerimiento.observaciones === undefined) {
+      Swal.fire(
+        '',
+        'Las observaciones no pueden ser vacias',
+        'info'
+      );
+      return;
+    }
+    if (this.requerimiento.fecha == null) {
+      this.requerimiento.fecha = null;
+      Swal.fire(
+        '',
+        `La fecha no puede ser nula`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.fecha.length <= 0) {
+      Swal.fire(
+        '',
+        `La fecha no pueden ser vacia`,
+        'warning'
+      );
+      this.requerimiento.fecha = null;
+      return;
+    }
+    if (this.requerimiento.fecha === undefined) {
+      Swal.fire(
+        '',
+        'La fecha no pueden ser vacia',
+        'info'
+      );
+      return;
+    }
+    if (this.requerimiento.name) {
+      if (this.requerimiento.empleado) {
+        if (this.requerimiento.asunto) {
+          if (this.requerimiento.observaciones) {
+            if (this.requerimiento.fecha) {
+                // Crea registro de requerimiento en la base d edatos.
+                this.servicioRequerimiento.crearRequerimiento(this.requerimiento);
+                // Crea contador auto incrementable en firebasse
+                const db = firebase.firestore();
+                const increment = firebase.firestore.FieldValue.increment(1);
+                // Document reference
+                const storyRef = db.collection('requerimientos').doc('--stats--');
+                // Update read count
+                storyRef.update({ numero: increment });
+                console.log(this.requerimiento);
+                Swal.fire(
+                    '',
+                    'El requerimiento fue creado con exito',
+                    'success'
+                  );
+                }
+                this.router.navigate(['/requerimientos']);
+          }
+        }
+      }
+    }
   }
 
   // Codigo adjuntar documentos en firebasse

@@ -38,6 +38,9 @@ import { EmpleadosComponent } from './components/auth/administrador/empleados/em
 import { CrearPerfilComponent } from './components/auth/administrador/crear-perfil/crear-perfil.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 
 @NgModule({
@@ -84,6 +87,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatNativeDateModule,
     NgbModule,
     ReactiveFormsModule,
+    MatPaginator,
+    MatTableDataSource
+
   ],
   providers: [
     AuthServiceService,
