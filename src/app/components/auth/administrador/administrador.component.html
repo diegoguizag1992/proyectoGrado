@@ -1,16 +1,58 @@
 <div class="card">
     <div class="card-body">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" style="color:slategray" [routerLink]="'/tipoRequerimiento'" routerLinkActive="active"><h6> Tipo requerimiento </h6></a>
         &nbsp; &nbsp; &nbsp; &nbsp;
-        <a class="navbar-brand"  style="color:slategray" [routerLink]="'/perfil'" routerLinkActive="active"><h6> Perfiles</h6></a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <a class="navbar-brand"  style="color:slategray" [routerLink]="'/empleados'" routerLinkActive="active"><h6> Empleados </h6></a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-        <!-- <a class="navbar-brand" [routerLink]="'/leaves'" routerLinkActive="active"> My leaves </a> -->
+              <nav class="navbar">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:slategray">
+                  Tipo requerimiento
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" [routerLink]="['/tipoRequerimiento']"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    &nbsp;
+                    &nbsp; Crear tipo requerimeinto</a>
+                  <a class="dropdown-item" [routerLink]="['/eliminarTipoRequerimiento']"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    &nbsp;
+                    &nbsp;
+                    Editar tipo requerimiento</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/consultaRequerimientos']"> <i class="fa fa-times" aria-hidden="true"></i>
+                    &nbsp; &nbsp; &nbsp;Eliminar tipo requerimiento </a> -->
+                </div>
+              </nav>
+
+              <nav class="navbar">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:slategray">
+                  Perfiles
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" [routerLink]="['/perfil']"> <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    &nbsp;
+                    &nbsp; Crear perfil</a>
+                  <a class="dropdown-item" [routerLink]="['/eliminarPerfil']"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    &nbsp; &nbsp;
+                    Editar perfil</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/consultaRequerimientos']"> <i class="fa fa-times" aria-hidden="true"></i>
+                    &nbsp; &nbsp; &nbsp; Eliminar perfil </a> -->
+                </div>
+              </nav>
+
+              <nav class="navbar">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:slategray">
+                  Empleados
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" [routerLink]="['/empleados']"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    &nbsp; &nbsp; Crear empleado</a>
+                  <a class="dropdown-item" [routerLink]="['/eliminarEmpleado']"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    &nbsp; &nbsp; Editar empleado</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/consultaRequerimientos']"> <i class="fa fa-times" aria-hidden="true"></i>
+                    &nbsp; &nbsp; &nbsp; Eliminar empleado </a> -->
+                </div>
+              </nav>
       </nav>
-      <p class="card-text">
+      <div class="card-body text-info text-center">
         <router-outlet></router-outlet>
-      </p>
+      </div>
+
     </div>
+
 </div>

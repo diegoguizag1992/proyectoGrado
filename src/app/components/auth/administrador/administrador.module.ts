@@ -7,6 +7,12 @@ import { EmpleadosComponent } from './empleados/empleados.component';
 import { TipoRequerimientoComponent } from './tipo-requerimiento/tipo-requerimiento.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearPerfilRoutingModule } from './crear-perfil/crear-perfil-routing.module';
+import { EliminarTipoRequerimientoComponent } from './eliminar-tipo-requerimiento/eliminar-tipo-requerimiento.component';
+import { EliminarPerfilComponent } from './eliminar-perfil/eliminar-perfil.component';
+import { EliminarEmpleadoComponent } from './eliminar-empleado/eliminar-empleado.component';
+import { ActualizarTipoRequerimientoComponent } from './actualizar-tipo-requerimiento/actualizar-tipo-requerimiento.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 
 
 const heroesRoutes: Routes = [
@@ -20,7 +26,13 @@ const heroesRoutes: Routes = [
   declarations: [
     CrearPerfilComponent,
     EmpleadosComponent,
-    TipoRequerimientoComponent
+    TipoRequerimientoComponent,
+    EliminarTipoRequerimientoComponent,
+    EliminarPerfilComponent,
+    EliminarEmpleadoComponent,
+    ActualizarTipoRequerimientoComponent,
+    EditarPerfilComponent,
+    EditarEmpleadoComponent
   ],
   imports: [
     CrearPerfilRoutingModule

@@ -2,6 +2,7 @@ import { TipoRequerimientoComponent } from './tipo-requerimiento/tipo-requerimie
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { Empleados } from 'src/app/models/empleados';
 import { Component, OnInit, NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +13,16 @@ import { Component, OnInit, NgModule } from '@angular/core';
 
 export class AdministradorComponent implements OnInit {
 
-  constructor() { }
+  ver = true;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  tipoRequerimiento(){
+    this.router.navigate(["/tipoRequerimiento"])
+    this.ver = false;
   }
 
 }

@@ -1,3 +1,7 @@
+import { ActualizarTipoRequerimientoComponent } from './components/auth/administrador/actualizar-tipo-requerimiento/actualizar-tipo-requerimiento.component';
+import { EliminarEmpleadoComponent } from './components/auth/administrador/eliminar-empleado/eliminar-empleado.component';
+import { EliminarPerfilComponent } from './components/auth/administrador/eliminar-perfil/eliminar-perfil.component';
+import { EliminarTipoRequerimientoComponent } from './components/auth/administrador/eliminar-tipo-requerimiento/eliminar-tipo-requerimiento.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { RequerimientosComponent } from './components/auth/requerimientos/requerimientos.component';
@@ -29,18 +33,20 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { Error404Component } from './components/shared/error404/error404.component';
 
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatNativeDateModule, MatProgressBarModule } from '@angular/material';
+import { MatButtonModule, MatSelectModule, MatIconModule, MatNativeDateModule, MatProgressBarModule, MatPaginatorIntl } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListaRequerimientosComponent } from './components/auth/requerimientos/lista-requerimientos/lista-requerimientos.component';
 import { AdministradorComponent } from './components/auth/administrador/administrador.component';
 import { TipoRequerimientoComponent } from './components/auth/administrador/tipo-requerimiento/tipo-requerimiento.component';
 import { EmpleadosComponent } from './components/auth/administrador/empleados/empleados.component';
 import { CrearPerfilComponent } from './components/auth/administrador/crear-perfil/crear-perfil.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
+  MatSortModule, MatTableModule } from "@angular/material";
+import { PaginatorEspañol } from './components/auth/requerimientos/respuesta-requerimientos/paginator-español';
+import { EditarPerfilComponent } from './components/auth/administrador/editar-perfil/editar-perfil.component';
+import { EditarEmpleadoComponent } from './components/auth/administrador/editar-empleado/editar-empleado.component';
 
 
 @NgModule({
@@ -59,11 +65,16 @@ import { MatTableDataSource } from '@angular/material/table';
     NavbarComponent,
     FooterComponent,
     Error404Component,
-    ListaRequerimientosComponent,
     AdministradorComponent,
     TipoRequerimientoComponent,
     EmpleadosComponent,
     CrearPerfilComponent,
+    EliminarTipoRequerimientoComponent,
+    EliminarPerfilComponent,
+    EliminarEmpleadoComponent,
+    ActualizarTipoRequerimientoComponent,
+    EditarPerfilComponent,
+    EditarEmpleadoComponent
   ],
   imports: [
     BrowserModule,
@@ -87,17 +98,19 @@ import { MatTableDataSource } from '@angular/material/table';
     MatNativeDateModule,
     NgbModule,
     ReactiveFormsModule,
-    MatPaginator,
-    MatTableDataSource
-
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule
   ],
-  providers: [
-    AuthServiceService,
-    MatDatepickerModule
+  providers: [ //{ provide: MatPaginatorIntl, useClass: PaginatorEspañol },
+    AuthServiceService, MatDatepickerModule
   ],
   bootstrap: [AppComponent
     ],
   exports: [
-    RouterModule
+    RouterModule,
+
   ]})
 export class AppModule { }

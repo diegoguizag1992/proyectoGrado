@@ -135,63 +135,63 @@ export class RequerimientoComponent implements OnInit {
       );
       return;
     }
-    if (this.requerimiento.observaciones == null) {
-      this.requerimiento.observaciones = null;
-      Swal.fire(
-        '',
-        `Las observaciones no puede ser nula`,
-        'warning'
-      );
-      return;
-    }
-    if (this.requerimiento.observaciones.length <= 0) {
-      Swal.fire(
-        '',
-        `Las observaciones no pueden ser vacias`,
-        'warning'
-      );
-      this.requerimiento.observaciones = null;
-      return;
-    }
-    if (this.requerimiento.observaciones === undefined) {
-      Swal.fire(
-        '',
-        'Las observaciones no pueden ser vacias',
-        'info'
-      );
-      return;
-    }
-    if (this.requerimiento.fecha == null) {
-      this.requerimiento.fecha = null;
-      Swal.fire(
-        '',
-        `La fecha no puede ser nula`,
-        'warning'
-      );
-      return;
-    }
-    if (this.requerimiento.fecha.length <= 0) {
-      Swal.fire(
-        '',
-        `La fecha no pueden ser vacia`,
-        'warning'
-      );
-      this.requerimiento.fecha = null;
-      return;
-    }
-    if (this.requerimiento.fecha === undefined) {
-      Swal.fire(
-        '',
-        'La fecha no pueden ser vacia',
-        'info'
-      );
-      return;
-    }
+    // if (this.requerimiento.observaciones == null) {
+    //   this.requerimiento.observaciones = null;
+    //   Swal.fire(
+    //     '',
+    //     `Las observaciones no puede ser nula`,
+    //     'warning'
+    //   );
+    //   return;
+    // }
+    // if (this.requerimiento.observaciones.length <= 0) {
+    //   Swal.fire(
+    //     '',
+    //     `Las observaciones no pueden ser vacias`,
+    //     'warning'
+    //   );
+    //   this.requerimiento.observaciones = null;
+    //   return;
+    // }
+    // if (this.requerimiento.observaciones === undefined) {
+    //   Swal.fire(
+    //     '',
+    //     'Las observaciones no pueden ser vacias',
+    //     'info'
+    //   );
+    //   return;
+    // }
+    // if (this.requerimiento.fecha == null) {
+    //   this.requerimiento.fecha = null;
+    //   Swal.fire(
+    //     '',
+    //     `La fecha no puede ser nula`,
+    //     'warning'
+    //   );
+    //   return;
+    // }
+    // if (this.requerimiento.fecha.length <= 0) {
+    //   Swal.fire(
+    //     '',
+    //     `La fecha no pueden ser vacia`,
+    //     'warning'
+    //   );
+    //   this.requerimiento.fecha = null;
+    //   return;
+    // }
+    // if (this.requerimiento.fecha === undefined) {
+    //   Swal.fire(
+    //     '',
+    //     'La fecha no pueden ser vacia',
+    //     'info'
+    //   );
+    //   return;
+    // }
     if (this.requerimiento.name) {
       if (this.requerimiento.empleado) {
         if (this.requerimiento.asunto) {
-          if (this.requerimiento.observaciones) {
-            if (this.requerimiento.fecha) {
+          // if (this.requerimiento.observaciones) {
+            // if (this.requerimiento.fecha) {
                 // Crea registro de requerimiento en la base d edatos.
                 this.servicioRequerimiento.crearRequerimiento(this.requerimiento);
                 // Crea contador auto incrementable en firebasse
@@ -210,8 +210,8 @@ export class RequerimientoComponent implements OnInit {
                 }
                 this.router.navigate(['/requerimientos']);
           }
-        }
-      }
+        // }
+      // }
     }
   }
 

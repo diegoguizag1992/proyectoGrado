@@ -1,5 +1,6 @@
+import { TipoRequerimiento } from 'src/app/models/tipoRequerimiento';
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';
@@ -8,6 +9,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RequerimientoServiceService {
+
+  private itemDoc: AngularFirestoreDocument<TipoRequerimiento>;
+  tipoRequerimiento: Observable<TipoRequerimiento>;
 
   empleados: Observable<any>;
   listaRequerimientos: Observable<any>;
@@ -18,13 +22,7 @@ export class RequerimientoServiceService {
   constructor(private db: AngularFirestore,
               private storage: AngularFireStorage) { }
 
-  crearTipoRequerimiento(tipoRequerimiento){
-    tipoRequerimiento.id = this.db.createId();
-    this.db
-      .collection('tipoRequerimientos')
-      .doc(tipoRequerimiento.id)
-      .set(tipoRequerimiento);
-  }
+
 
   crearPerfiles(perfil){
     perfil.id = this.db.createId();
@@ -52,17 +50,36 @@ export class RequerimientoServiceService {
     return this.empleados;
   }
 
-  informacionTipoRequerimiento(){
-    this.listaRequerimientos = this.db.collection('tipoRequerimientos').valueChanges();
-    return this.listaRequerimientos;
-  }
-
   crearRequerimiento(requerimiento){
     requerimiento.id = this.db.createId();
     this.db
       .collection('requerimientos')
       .doc(requerimiento.id)
       .set(requerimiento);
+  }
+
+  // Tipo requerimientos
+  crearTipoRequerimiento(tipoRequerimiento){
+    tipoRequerimiento.id = this.db.createId();
+    this.db
+      .collection('tipoRequerimientos')
+      .doc(tipoRequerimiento.id)
+      .set(tipoRequerimiento);
+  }
+
+  informacionTipoRequerimiento(){
+    this.listaRequerimientos = this.db.collection('tipoRequerimientos').valueChanges();
+    return this.listaRequerimientos;
+  }
+
+  actualizarTipoReuqerimiento(item: TipoRequerimiento) {
+    this.itemDoc = this.db.doc<TipoRequerimiento>(`tipoRequerimientos/${item.id}`);
+    this.tipoRequerimiento = this.itemDoc.valueChanges();
+    this.itemDoc.update(item);
+  }
+
+  deleteTipoRequerimiento(infoRequerimiento){
+    return this.db.collection('tipoRequerimientos').doc(infoRequerimiento).delete();
   }
 
   //Tarea para subir archivo

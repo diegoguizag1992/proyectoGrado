@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="container d-flex justify-content-center pt-5">
+    <div class="card border-success" style="width: 22rem;">
+        <div class="card-header text-center text-success"> Empleado</div>
+        <div class="card-body text-success text-center">
+            <form (ngSubmit)="editarPais()">
+                <h6 class="text-center text-secondary"> Nombres &nbsp; &nbsp; </h6>
+                <input type="text"
+                       value="empleados.nombre" class="form-control" name="nombreEmpleado"
+                       [(ngModel)]="empleados.nombre"/>
+                <br>
+                <h6 class="text-center text-secondary"> Apellidos &nbsp; &nbsp; </h6>
+                <input type="text"
+                       value="empleados.apellido" class="form-control" name="apellidoEmpleado"
+                       [(ngModel)]="empleados.apellido"/>
+                <br>
+                <h6 class="text-center text-secondary"> Area &nbsp; &nbsp; </h6>
+                <input type="text"
+                       value="empleados.departamento" class="form-control" name="areaEmpleado"
+                       [(ngModel)]="empleados.departamento"/>
+                <br>
+                <h6 class="text-center text-secondary"> Correo &nbsp; &nbsp; </h6>
+                <input type="text"
+                       value="empleados.correo" class="form-control" name="correoEmpleado"
+                       [(ngModel)]="empleados.correo"/>
+                <br> <br>
+                <button class="btn btn-secondary" type="submit" (click)="atras()"> Modificar </button>
+            <br>
+            <!-- <button class="btn btn-warning" [routerLink]="['/ciudades']"> Atras. . .</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+    <br> <br>
+  </div>

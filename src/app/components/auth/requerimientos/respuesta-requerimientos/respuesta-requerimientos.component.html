@@ -1,33 +1,64 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
+<br>
+<br>
+<br>
+<div class="course">
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
+    <!-- New part: this is the search box -->
+    <!-- <mat-input-container>
+        <input matInput placeholder="Search lessons" #input>
+    </mat-input-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div> -->
+    <div class="example-header mat-elevation-z8">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)"
+          placeholder="Escriba algo para filtrar">
+        </mat-form-field>
   </div>
+  <br>
+  <div class="example-container mat-elevation-z8">
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort>
+        <!--  Columna ID-->
+        <ng-container matColumnDef="Id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.numero}} </mat-cell>
+        </ng-container>
+
+        <!-- Columna Apellido -->
+        <ng-container matColumnDef="Apellido">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido</mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.empleado}} </mat-cell>
+        </ng-container>
+
+        <!-- Columna Nombre-->
+        <ng-container matColumnDef="Nombre">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Columna Nacionalidad -->
+        <ng-container matColumnDef="Nacionalidad">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Nacionalidad</mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.asunto}} </mat-cell>
+        </ng-container>
+
+         <!-- Columna Edad -->
+         <!-- <ng-container matColumnDef="Edad">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Edad </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.Edad}} </mat-cell>
+        </ng-container> -->
+
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" [pageSize]="25" [showFirstLastButtons]></mat-paginator>
+
+</div>
+
+

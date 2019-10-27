@@ -1,8 +1,10 @@
+import { TipoRequerimiento } from './models/tipoRequerimiento';
+import { EliminarEmpleadoComponent } from './components/auth/administrador/eliminar-empleado/eliminar-empleado.component';
+import { EliminarPerfilComponent } from './components/auth/administrador/eliminar-perfil/eliminar-perfil.component';
+import { EliminarTipoRequerimientoComponent } from './components/auth/administrador/eliminar-tipo-requerimiento/eliminar-tipo-requerimiento.component';
 import { CrearPerfilComponent } from './components/auth/administrador/crear-perfil/crear-perfil.component';
-import { TipoRequerimientoComponent } from './components/auth/administrador/tipo-requerimiento/tipo-requerimiento.component';
 import { EmpleadosComponent } from './components/auth/administrador/empleados/empleados.component';
 import { AdministradorComponent } from './components/auth/administrador/administrador.component';
-import { ListaRequerimientosComponent } from './components/auth/requerimientos/lista-requerimientos/lista-requerimientos.component';
 import { Error404Component } from './components/shared/error404/error404.component';
 import { RespuestaRequerimientosComponent } from './components/auth/requerimientos/respuesta-requerimientos/respuesta-requerimientos.component';
 import { RequerimientoComponent } from './components/auth/requerimientos/requerimiento/requerimiento.component';
@@ -16,6 +18,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { TipoRequerimientoComponent } from './components/auth/administrador/tipo-requerimiento/tipo-requerimiento.component';
+import { ActualizarTipoRequerimientoComponent } from './components/auth/administrador/actualizar-tipo-requerimiento/actualizar-tipo-requerimiento.component';
+import { EditarPerfilComponent } from './components/auth/administrador/editar-perfil/editar-perfil.component';
+import { EditarEmpleadoComponent } from './components/auth/administrador/editar-empleado/editar-empleado.component';
 
 
 
@@ -30,7 +36,6 @@ const routes: Routes = [
   { path: 'error404', component: Error404Component},
   { path: 'requerimiento', component: RequerimientoComponent},
   { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
-  { path: 'listaRequerimientos', component: ListaRequerimientosComponent},
   { path: 'administrador', component: AdministradorComponent},
   // { path: 'empleados', component: EmpleadosComponent},
   // { path: 'tipoRequerimiento', component: TipoRequerimientoComponent},
@@ -41,6 +46,12 @@ const routes: Routes = [
      { path: 'perfil', component: CrearPerfilComponent },
      { path: 'empleados', component: EmpleadosComponent },
      { path: 'tipoRequerimiento', component: TipoRequerimientoComponent },
+     { path: 'eliminarTipoRequerimiento', component: EliminarTipoRequerimientoComponent },
+     { path: 'actualizarTipoReque/:id', component: ActualizarTipoRequerimientoComponent },
+     { path: 'eliminarPerfil', component: EliminarPerfilComponent },
+     { path: 'editarPerfil/:id', component: EditarPerfilComponent },
+     { path: 'eliminarEmpleado', component: EliminarEmpleadoComponent },
+     { path: 'editarEmpleado/:id', component: EditarEmpleadoComponent }
     ]
   },
   // { path: 'administrador', loadChildren: () => import(`./components/auth/administrador/administrador.module`).then(m => m.AdministradorModule) },

@@ -1,8 +1,9 @@
-import { TipoRequerimiento } from './../../../../models/tipoRequerimiento';
 import { Component, OnInit } from '@angular/core';
+import { TipoRequerimiento } from 'src/app/models/tipoRequerimiento';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
 import { RequerimientoServiceService } from 'src/app/services/requerimiento-service.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-tipo-requerimiento',
@@ -20,7 +21,6 @@ export class TipoRequerimientoComponent implements OnInit {
               private serviceRequerimiento: RequerimientoServiceService) { }
 
   ngOnInit() {
-
   }
 
   async crear() {

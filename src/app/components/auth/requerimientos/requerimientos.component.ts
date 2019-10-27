@@ -23,7 +23,7 @@ export class RequerimientosComponent implements OnInit {
   }
 
   listaRequerimientos() {
-    this.router.navigate(["./listaRequerimientos"]);
+    this.router.navigate(["./respuestaRequerimientos"]);
   }
 
   respuestaRequerimientos() {

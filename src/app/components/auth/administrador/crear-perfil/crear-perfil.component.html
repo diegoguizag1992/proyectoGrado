@@ -1,7 +1,7 @@
 <div class="card">
     <div class="container d-flex justify-content-center pt-5">
-        <div class="card border-secondary" style="width: 18rem;">
-          <div class="card-header text-center">Creación Perfil</div>
+        <div class="card border-warning" style="width: 18rem;">
+          <div class="card-header text-center text-warning">Creación Perfil</div>
           <div class="card-body text-secondary text-center">
               <form (ngSubmit)="crear()">
                   <!-- <h5 class="card-title">Nombre:</h5>
@@ -19,9 +19,9 @@
                          class="form-control" name="path"
                          [(ngModel)]="informacionPerfil.path" required/>
                   <br> <br>
-                  <button class="btn btn-info" type="submit"> crear </button>
+                  <button class="btn btn-secondary" type="submit"> crear </button>
                   &nbsp; &nbsp;
-                  <button class="btn btn-info" type="button" (click)="atras()"> Atras </button>
+                  <button class="btn btn-secondary" type="button" (click)="atras()"> Atras </button>
                   <br>
                 </form>
           </div>
