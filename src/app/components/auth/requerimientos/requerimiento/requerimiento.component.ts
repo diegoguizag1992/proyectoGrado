@@ -9,7 +9,7 @@ import { RequerimientoServiceService } from 'src/app/services/requerimiento-serv
 import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 
@@ -165,37 +165,10 @@ export class RequerimientoComponent implements OnInit {
       );
       return;
     }
-    if (this.requerimiento.fecha == null) {
-      this.requerimiento.fecha = null;
-      Swal.fire(
-        '',
-        `La fecha no puede ser nula`,
-        'warning'
-      );
-      return;
-    }
-    if (this.requerimiento.fecha.length <= 0) {
-      Swal.fire(
-        '',
-        `La fecha no pueden ser vacia`,
-        'warning'
-      );
-      this.requerimiento.fecha = null;
-      return;
-    }
-    if (this.requerimiento.fecha === undefined) {
-      Swal.fire(
-        '',
-        'La fecha no pueden ser vacia',
-        'info'
-      );
-      return;
-    }
     if (this.requerimiento.name) {
       if (this.requerimiento.empleado) {
         if (this.requerimiento.asunto) {
           if (this.requerimiento.observaciones) {
-            if (this.requerimiento.fecha) {
             //Crea registro de requerimiento en la base d edatos.
                 this.requerimiento.fecha = `${this.model.day} / ${this.model.month} / ${this.model.year}`;
                 // var fecha: any = new Date();
@@ -217,7 +190,6 @@ export class RequerimientoComponent implements OnInit {
                 );
               }
               this.router.navigate(['/requerimientos']);
-            }
        }
      }
     }

@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 import { Estado } from 'src/app/models/estado';
 import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-respuesta',
@@ -71,29 +73,149 @@ export class RespuestaComponent implements OnInit {
     this.item = this.servicioSeguimiento.numeroSeguimiento();
     this.item.subscribe(data => {
       this.numero = data;
-      console.log('este es:', this.numero);
 
       this.infoSeguimiento.numeroSeguimiento = this.numero.numeroSeguimiento;
       this.infoSeguimiento.numeroSeguimiento += 1;
-
     });
+  }
 
-
+  atras(){
+    this.router.navigate(['/requerimientos']);
   }
 
   crearRequerimiento() {
-    this.infoSeguimiento.fechaSeguimiento = `${this.fecha.day} / ${this.fecha.month} / ${this.fecha.year}`;
-    this.servicioSeguimiento.crearSeguimiento(this.infoSeguimiento);
-    // Crea contador auto incrementable en firebasse
-    const db = firebase.firestore();
-    const increment = firebase.firestore.FieldValue.increment(1);
-    // Document reference
-    const storyRef = db.collection('seguimiento').doc('--stats--');
-    // Update read count
-    storyRef.update({ numeroSeguimiento: increment });
-    console.log(this.infoSeguimiento);
-    // console.log(this.seguimiento.numero);
-  }
+
+    if (this.infoSeguimiento.responsableSeguimiento == null) {
+      this.infoSeguimiento.responsableSeguimiento = null;
+      Swal.fire(
+        '',
+        `Debe seleccionar un responsable del seguimiento`,
+        'warning'
+      );
+      return;
+    }
+    if (this.infoSeguimiento.responsableSeguimiento.length <= 0) {
+      Swal.fire(
+        '',
+        `Debe seleccionar un responsable del seguimiento`,
+        'warning'
+      );
+      this.infoSeguimiento.responsableSeguimiento = null;
+      return;
+    }
+    if (this.infoSeguimiento.responsableSeguimiento === undefined) {
+      Swal.fire(
+        '',
+        'Debe seleccionar un responsable del seguimiento',
+        'info'
+      );
+      return;
+    }
+    //
+    if (this.infoSeguimiento.asuntoSeguimiento == null) {
+      this.infoSeguimiento.asuntoSeguimiento = null;
+      Swal.fire(
+        '',
+        `El asunto del seguimiento no puede ser vacio`,
+        'warning'
+      );
+      return;
+    }
+    if (this.infoSeguimiento.asuntoSeguimiento.length <= 0) {
+      Swal.fire(
+        '',
+        `El asunto del seguimiento no puede ser vacio`,
+        'warning'
+      );
+      this.infoSeguimiento.asuntoSeguimiento = null;
+      return;
+    }
+    if (this.infoSeguimiento.asuntoSeguimiento === undefined) {
+      Swal.fire(
+        '',
+        'El asunto del seguimiento no puede ser vacio',
+        'info'
+      );
+      return;
+    }
+    //
+    if (this.infoSeguimiento.estado == null) {
+      this.infoSeguimiento.estado = null;
+      Swal.fire(
+        '',
+        `El estado del seguimiento no puede ser vacio`,
+        'warning'
+      );
+      return;
+    }
+    if (this.infoSeguimiento.estado.length <= 0) {
+      Swal.fire(
+        '',
+        `El estado del seguimiento no puede ser vacio`,
+        'warning'
+      );
+      this.infoSeguimiento.estado = null;
+      return;
+    }
+    if (this.infoSeguimiento.estado === undefined) {
+      Swal.fire(
+        '',
+        'El estado del seguimiento no puede ser vacio',
+        'info'
+      );
+      return;
+    }
+    //
+    if (this.infoSeguimiento.observaciones == null) {
+      this.infoSeguimiento.observaciones = null;
+      Swal.fire(
+        '',
+        `Las observaciones del seguimiento no pueden ser vacias`,
+        'warning'
+      );
+      return;
+    }
+    if (this.infoSeguimiento.observaciones.length <= 0) {
+      Swal.fire(
+        '',
+        `Las observaciones del seguimiento no pueden ser vacias`,
+        'warning'
+      );
+      this.infoSeguimiento.observaciones = null;
+      return;
+    }
+    if (this.infoSeguimiento.observaciones === undefined) {
+      Swal.fire(
+        '',
+        'El asunto del seguimiento no pueden ser vacias',
+        'info'
+      );
+      return;
+    }
+    if (this.infoSeguimiento.responsableSeguimiento) {
+      if (this.infoSeguimiento.asuntoSeguimiento) {
+          if (this.infoSeguimiento.estado) {
+            if (this.infoSeguimiento.observaciones) {
+              this.infoSeguimiento.fechaSeguimiento = `${this.fecha.day} / ${this.fecha.month} / ${this.fecha.year}`;
+              this.servicioSeguimiento.crearSeguimiento(this.infoSeguimiento);
+              // Crea contador auto incrementable en firebasse
+              const db = firebase.firestore();
+              const increment = firebase.firestore.FieldValue.increment(1);
+              // Document reference
+              const storyRef = db.collection('seguimiento').doc('--stats--');
+              // Update read count
+              storyRef.update({ numeroSeguimiento: increment });
+              Swal.fire(
+                '',
+                'El requerimiento fue creado con exito',
+                'success'
+              );
+            }
+            this.router.navigate(['/requerimientos']);
+          }
+        }
+      }
+    }
 
   // Codigo adjuntar documentos en firebasse
   uploadFile(event) {
@@ -105,7 +227,7 @@ export class RespuestaComponent implements OnInit {
         const Url = url; // for ts
         this.infoSeguimiento.docAdjunto = url // with this you can use it in the html
         // console.log(this.requerimiento);
-      })
-    })
+      });
+    });
   }
 }

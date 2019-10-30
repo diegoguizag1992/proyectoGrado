@@ -180,6 +180,11 @@
   left: 350px;
 }
 
-
+.botonAtras{
+  position: absolute;
+  top: 670px;
+  left: 260px;
+  background-color:rgb(211, 211, 211)
+}
 
 
