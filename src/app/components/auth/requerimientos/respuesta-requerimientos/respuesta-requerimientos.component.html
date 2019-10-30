@@ -1,8 +1,6 @@
-
 <br>
-<br>
-<br>
-<div class="course">
+<div class="container">
+  <div class="course">
 
     <!-- New part: this is the search box -->
     <!-- <mat-input-container>
@@ -21,44 +19,66 @@
   <br>
   <div class="example-container mat-elevation-z8">
   </div>
-
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8" style="text-align: center;">
       <mat-table [dataSource]="dataSource" matSort>
         <!--  Columna ID-->
         <ng-container matColumnDef="Id">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
-              <mat-cell *matCellDef="let row"> {{row.numero}} </mat-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Id</mat-header-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.numero}} </mat-cell>
         </ng-container>
 
-        <!-- Columna Apellido -->
-        <ng-container matColumnDef="Apellido">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido</mat-header-cell>
-              <mat-cell *matCellDef="let row"> {{row.empleado}} </mat-cell>
-        </ng-container>
-
-        <!-- Columna Nombre-->
+        <!-- Columna Nombre -->
         <ng-container matColumnDef="Nombre">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Nombre</mat-header-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.empleado}} </mat-cell>
         </ng-container>
 
-        <!-- Columna Nacionalidad -->
-        <ng-container matColumnDef="Nacionalidad">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Nacionalidad</mat-header-cell>
-              <mat-cell *matCellDef="let row"> {{row.asunto}} </mat-cell>
+        <!-- Columna Fecha -->
+        <ng-container matColumnDef="Fecha">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Fecha</mat-header-cell>
+            <mat-cell *matCellDef="let row"  type="button" class="centrarTexto"> {{row.fecha}} </mat-cell>
+      </ng-container>
+
+        <!-- Columna Tipo Requerimiento-->
+        <ng-container matColumnDef="Requerimiento">
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto">Tipo requerimiento </mat-header-cell>
+      <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.name}} </mat-cell>
         </ng-container>
 
-         <!-- Columna Edad -->
-         <!-- <ng-container matColumnDef="Edad">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Edad </mat-header-cell>
-              <mat-cell *matCellDef="let row"> {{row.Edad}} </mat-cell>
-        </ng-container> -->
+        <!-- Columna Asunto -->
+        <ng-container matColumnDef="Asunto">
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Asunto</mat-header-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.asunto}} </mat-cell>
+        </ng-container>
+
+         <!-- Columna Observaciones -->
+         <ng-container matColumnDef="Observaciones">
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Observaciones </mat-header-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.observaciones}} </mat-cell>
+        </ng-container>
+
+        <!-- Columna link Doc Adjuntos -->
+        <ng-container matColumnDef="Adjunto">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Doc adjunto </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="centrarTexto"> <a class="text-info" href="{{row.docAdjunto}}"> adjunto</a></mat-cell>
+        </ng-container>
+
+        <!-- Columna Responder Requerimiento -->
+        <ng-container matColumnDef="Responder">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Responder </mat-header-cell>
+            <mat-cell *matCellDef="let row" (click)="responderRequerimiento(row.numero)" class="centrarTexto" type="button"> <a> <i class="fa fa-check text-success" aria-hidden="true"></i> </a>
+            </mat-cell>
+          </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" [pageSize]="25" [showFirstLastButtons]></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
 </div>
-
+<br>
+<div class="container">
+    <button type="button" class="btn  colorBoton" (click)="atras()">Atras</button>
+</div>
+<br> <br> <br>
 

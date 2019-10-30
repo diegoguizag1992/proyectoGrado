@@ -8,9 +8,10 @@ import * as firebase from 'firebase/app';
 import { post } from 'selenium-webdriver/http';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { $ } from 'protractor';
-import swal from 'sweetalert';
 import { LocalStorageService, LocalStorage } from 'ngx-webstorage';
 import { NavbarComponent } from '../components/shared/navbar/navbar.component';
+import Swal from 'sweetalert2';
+
 
 @Injectable({
   providedIn: 'root'
@@ -99,9 +100,15 @@ export class AuthServiceService {
 
   async login(email: string, password: string) {
     return await this.firebaseAuth.auth.signInWithEmailAndPassword(email, password).then(() => {
-      this.router.navigate(["./administrador"])
+      window.location.assign('/administrador');
     }, (error) => {
       console.log(error);
+      Swal.fire(
+        '',
+        'la contraseña es incorrecta',
+        'warning'
+      );
+        return;
     });
   }
 

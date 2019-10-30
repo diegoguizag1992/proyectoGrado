@@ -1,16 +1,20 @@
-
-<div class="container col-8 requerimiento mt-3">
+<div class="container col-8 requerimiento mt-4">
     <div class="card text-center requerimiento">
-        <div class="card-header">
-            <div class="text-secondary">Nuevo Requerimiento. </div>
+        <div class="card-header cardTitulo">
+            <div class="text-dark">  Seguimiento requerimiento. </div>
         </div>
         <div class="card-body">
           <form  (ngSubmit)="crearRequerimiento()">
             <div class="container ">
               <div class="numeroRequerimiento"><i class="fa fa-hand-o-right text-info" aria-hidden="true"></i>
                 &nbsp; No. requerimiento:</div>
-                <input type="text" name="numero" style="width: 70px;" class="form-control numeroReque" [(ngModel)]="requerimiento.numero" value="{{requerimiento.numero}}">
+                <input type="text" name="numero" style="width: 70px;" class="form-control numeroReque" [(ngModel)]="respuesta.numeroRequerimiento" value="{{respuesta.numeroRequerimiento}}">
             </div>
+            <div class="container ">
+                <div class="numeroRespuesta"><i class="fa fa-hand-o-right text-info" aria-hidden="true"></i>
+                  &nbsp; No. seguimiento:</div>
+                  <input type="text" name="respuesta" style="width: 70px;" class="form-control inputRespuest" [(ngModel)]="respuesta.codigo" value="{{requerimiento.numero}}">
+              </div>
             <br>
               <div class="container tipoRequerimiento">
                   <div class="tipoReque mt-4"><i class="fa fa-check-square-o text-info" aria-hidden="true"></i> &nbsp; Tipo de
@@ -27,7 +31,7 @@
                 </select>
               </div>
 
-    <!-- Lista Responsables -->
+    <!-- Responsable -->
             <div class="divEmpleado"><i class="fa fa-user-o text-info" aria-hidden="true"></i>
               &nbsp; &nbsp;
               Responsable </div>
@@ -38,6 +42,17 @@
                   </select>
               </div>
 
+    <!-- Lista responsable seguimineto -->
+              <div class="divSeguimineto"><i class="fa fa-user-o text-info" aria-hidden="true"></i>
+                &nbsp; &nbsp;
+                Responsable seguimiento </div>
+                <div class="selectSeguimineto mt-5">
+                    <select class="form-control"  id="nombre" required
+                    [(ngModel)]="requerimiento.empleado" name="nombre" style="width: 350px;">
+                    <option *ngFor="let requerimiento of listaResponsable | async" [value]="requerimiento.nombreCompleto">{{requerimiento.nombreCompleto}} </option>
+                    </select>
+                </div>
+
      <!-- Asunto  -->
             <div class="asunto"><i class="fa fa-folder-o text-info" aria-hidden="true"></i>
               &nbsp; &nbsp; Asunto:
@@ -47,7 +62,7 @@
             <div class="divObservaciones"><i class="fa fa-pencil-square-o text-info" aria-hidden="true"></i>
               &nbsp; &nbsp; Observaciones:
             </div>
-              <textarea [(ngModel)]="requerimiento.observaciones" class="form-control observaciones" name="requerimiento.observaciones" rows="2"></textarea>
+              <textarea [(ngModel)]="requerimiento.observaciones" class="form-control observaciones" name="requerimiento.observaciones" rows="3"></textarea>
             <button type="submit" class="btn btn-outline-warning botonCrear">Crear</button>
           </form>
 

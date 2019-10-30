@@ -128,6 +128,8 @@ export class EmpleadosComponent implements OnInit {
         if(this.empleado.departamento){
         if(this.empleado.nombre){
            if(this.empleado.apellido){
+
+            this.empleado.nombreCompleto = `${this.empleado.nombre} ${this.empleado.apellido}`;
             this.serviceRequerimiento.crearEmpleado(this.empleado);
             Swal.fire(
               '',

@@ -15,7 +15,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpHeaders, HttpClient, HttpParams} from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
@@ -24,7 +24,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { PerfilesComponent } from './components/auth/perfiles/perfiles.component';
@@ -47,6 +46,11 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
 import { PaginatorEspañol } from './components/auth/requerimientos/respuesta-requerimientos/paginator-español';
 import { EditarPerfilComponent } from './components/auth/administrador/editar-perfil/editar-perfil.component';
 import { EditarEmpleadoComponent } from './components/auth/administrador/editar-empleado/editar-empleado.component';
+import { FechaPipe } from './pipes/fecha.pipe';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { RespuestaComponent } from './components/auth/requerimientos/respuesta/respuesta.component';
+
 
 
 @NgModule({
@@ -74,7 +78,9 @@ import { EditarEmpleadoComponent } from './components/auth/administrador/editar-
     EliminarEmpleadoComponent,
     ActualizarTipoRequerimientoComponent,
     EditarPerfilComponent,
-    EditarEmpleadoComponent
+    EditarEmpleadoComponent,
+    FechaPipe,
+    RespuestaComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +108,8 @@ import { EditarEmpleadoComponent } from './components/auth/administrador/editar-
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    AngularFireFunctionsModule
   ],
   providers: [ //{ provide: MatPaginatorIntl, useClass: PaginatorEspañol },
     AuthServiceService, MatDatepickerModule
@@ -114,3 +121,8 @@ import { EditarEmpleadoComponent } from './components/auth/administrador/editar-
 
   ]})
 export class AppModule { }
+
+
+
+
+

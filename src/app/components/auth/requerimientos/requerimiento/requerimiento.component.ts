@@ -1,3 +1,4 @@
+import { Fecha } from './../../../../models/fecha';
 import { Requerimiento } from './../../../../models/requerimiento';
 import { TipoRequerimiento } from './../../../../models/tipoRequerimiento';
 import { Component, OnInit } from '@angular/core';
@@ -28,17 +29,32 @@ export class RequerimientoComponent implements OnInit {
   nombreArchivo;
   item: Observable<any>;
   numero: any = {};
-
+  fecha: any = {};
+  model;
+  nombre;
 
   constructor(private servicioRequerimiento: RequerimientoServiceService,
-              private storage: AngularFireStorage,
-              private db: AngularFireDatabase,
-              private router: Router) {
+    private storage: AngularFireStorage,
+    private db: AngularFireDatabase,
+    private router: Router) {
 
     // Listado tipo requerimientos
     this.tipoRequerimientos = this.servicioRequerimiento.informacionTipoRequerimiento();
     //  Listado empleados
     this.listaResponsable = this.servicioRequerimiento.informacionEmpleados();
+    this.listaResponsable.subscribe(data => {
+      this.listaEmpleados = data;
+      // for (const iterator in data) {
+      //     this.listaEmpleados = iterator;
+      console.log(this.listaEmpleados);
+
+      // }
+
+      // console.log(this.listaEmpleados.nombre);
+
+      // this.nombre = `${this.listaEmpleados.nombre} ${this.listaEmpleados.apellido}`;
+      // console.log('Este es', this.listaEmpleados);
+    })
 
     // Trae el numero de consecutivo de la base de datos
     this.item = this.servicioRequerimiento.getCat();
@@ -46,13 +62,19 @@ export class RequerimientoComponent implements OnInit {
       this.numero = data;
       this.requerimiento.numero = this.numero.numero;
       this.requerimiento.numero += 1;
-      console.log(this.numero.numero);
+
+      console.log(this.model);
+
     })
 
   }
 
   ngOnInit() {
+    console.log(this.fecha.fecha);
+
   }
+
+
 
   crearRequerimiento() {
 
@@ -135,32 +157,32 @@ export class RequerimientoComponent implements OnInit {
       );
       return;
     }
-    // if (this.requerimiento.observaciones == null) {
-    //   this.requerimiento.observaciones = null;
-    //   Swal.fire(
-    //     '',
-    //     `Las observaciones no puede ser nula`,
-    //     'warning'
-    //   );
-    //   return;
-    // }
-    // if (this.requerimiento.observaciones.length <= 0) {
-    //   Swal.fire(
-    //     '',
-    //     `Las observaciones no pueden ser vacias`,
-    //     'warning'
-    //   );
-    //   this.requerimiento.observaciones = null;
-    //   return;
-    // }
-    // if (this.requerimiento.observaciones === undefined) {
-    //   Swal.fire(
-    //     '',
-    //     'Las observaciones no pueden ser vacias',
-    //     'info'
-    //   );
-    //   return;
-    // }
+    if (this.requerimiento.observaciones == null) {
+      this.requerimiento.observaciones = null;
+      Swal.fire(
+        '',
+        `Las observaciones no puede ser nula`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.observaciones.length <= 0) {
+      Swal.fire(
+        '',
+        `Las observaciones no pueden ser vacias`,
+        'warning'
+      );
+      this.requerimiento.observaciones = null;
+      return;
+    }
+    if (this.requerimiento.observaciones === undefined) {
+      Swal.fire(
+        '',
+        'Las observaciones no pueden ser vacias',
+        'info'
+      );
+      return;
+    }
     // if (this.requerimiento.fecha == null) {
     //   this.requerimiento.fecha = null;
     //   Swal.fire(
@@ -190,9 +212,15 @@ export class RequerimientoComponent implements OnInit {
     if (this.requerimiento.name) {
       if (this.requerimiento.empleado) {
         if (this.requerimiento.asunto) {
-          // if (this.requerimiento.observaciones) {
+          if (this.requerimiento.observaciones) {
             // if (this.requerimiento.fecha) {
-                // Crea registro de requerimiento en la base d edatos.
+            // Crea registro de requerimiento en la base d edatos.
+
+
+                this.requerimiento.fecha = `${this.model.day} / ${this.model.month} / ${this.model.year}`;
+                // var fecha: any = new Date();
+                // fecha.toLocaleDateString("es-ES", this.model);
+                // console.log(fecha.toLocaleDateString("es-ES", this.model));
                 this.servicioRequerimiento.crearRequerimiento(this.requerimiento);
                 // Crea contador auto incrementable en firebasse
                 const db = firebase.firestore();
@@ -203,16 +231,16 @@ export class RequerimientoComponent implements OnInit {
                 storyRef.update({ numero: increment });
                 console.log(this.requerimiento);
                 Swal.fire(
-                    '',
-                    'El requerimiento fue creado con exito',
-                    'success'
-                  );
-                }
-                this.router.navigate(['/requerimientos']);
-          }
-        // }
-      // }
+                  '',
+                  'El requerimiento fue creado con exito',
+                  'success'
+                );
+              }
+              this.router.navigate(['/requerimientos']);
+            }
+      }
     }
+    // }
   }
 
   // Codigo adjuntar documentos en firebasse

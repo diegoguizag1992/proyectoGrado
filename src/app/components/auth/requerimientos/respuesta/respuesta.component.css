@@ -1,0 +1,168 @@
+.cardTitulo{
+  background-color:rgb(181, 174, 202);
+}
+
+.requerimiento{
+  display: flex;
+  /* top: 65px; */
+  height: 550px;
+  width: 1200px;
+}
+
+.numeroRespuesta{
+  position: absolute;
+  /* top: px; */
+  left: 500px;
+}
+.inputRespuest{
+  position: absolute;
+  /* top: px; */
+  left: 660px;
+}
+
+.tipoRequeTitulo{
+  display: inline;
+  flex-direction: row;
+  /* flex-grow: 2; */
+  justify-content: space-evenly;
+  /* height: 100px; Or whatever */
+  margin: auto;
+}
+
+.tipoReque{
+  position: absolute;
+  /* top: px; */
+  left: 45px;
+}
+
+.numeroRequerimiento{
+  position: absolute;
+  /* top: px; */
+  left: 45px;
+}
+
+.numeroReque{
+  position: absolute;
+  /* top: px; */
+  left: 220px;
+}
+
+.selectTipoReuqe{
+  display: flex;
+  position: absolute;
+  left: 55px;
+  top: 145px;
+  width: 290px;
+}
+
+.fechaReque{
+  display: flex;
+  position: absolute;
+  /* top: px; */
+  left: 500px;
+}
+
+.fechaRequerimiento{
+  display: flex;
+  position: absolute;
+  top: 141px;
+  left: 520px;
+}
+
+.divEmpleado{
+  display: flex;
+  position: absolute;
+  top: 190px;
+  left:  45px;
+}
+.selectEmpleado{
+  display: flex;
+  position: absolute;
+  top: 170px;
+  left:  70px;
+  width: 320px;
+}
+
+.divSeguimineto{
+  display: flex;
+  position: absolute;
+  top: 185px;
+  left:  500px;
+}
+
+.selectSeguimineto{
+  display: flex;
+  position: absolute;
+  top: 170px;
+  left:  530px;
+}
+
+.asunto{
+  display: inline;
+  display: flex;
+  position: absolute;
+  top: 265px;
+  left: 45px;
+}
+
+.inputAsunto{
+  display: inline;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 25px;
+  width: 400px;
+}
+
+.observaciones{
+  display: inline;
+  display: flex;
+  position: absolute;
+  top: 370px;
+  left: 70px;
+  width: 820px;
+  font-size: 14px;
+}
+
+.divObservaciones{
+  display: inline;
+  display: flex;
+  position: absolute;
+  top: 340px;
+  left: 45px;
+}
+
+
+.botonCrear{
+  position: absolute;
+  top: 465px;
+  left: 300px;
+}
+
+.botonAdjun{
+  position: absolute;
+  top: 465px;
+  left: 500px;
+}
+
+.botonAdjuntar{
+  position: absolute;
+  top: 400px;
+  left: 350px;
+}
+
+.botonAdjuntarDos{
+  position: absolute;
+  top: 400px;
+  left: 350px;
+}
+
+.botonAdjuntarTres{
+  position: absolute;
+  top: 440px;
+  left: 350px;
+}
+
+
+
+

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
         <img class="logo" src="./assets/images/ImagenDos.png" alt="logo navbar">
     </a>
   <button
@@ -20,15 +20,15 @@
           > <span class="sr-only">(current)</span></a
         >
       </li>
-      <li class="nav-item">
-          <nav class="navbar">
-        <a class="nav-link" (click)="perfiles()" *ngIf="perfil"> Perfiles</a>
+      <li class="nav-item" type="input">
+          <nav class="navbar" type="input">
+        <a class="nav-link text-dark" type="input" (click)="perfiles()" *ngIf="perfil"> Perfiles</a>
         </nav>
       </li>
       <li class="nav-item">
 
         <nav class="navbar">
-          <a class="nav-link dropdown-toggle text-black" href="#" id="navbardrop" data-toggle="dropdown" *ngIf="juridica">
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbardrop" data-toggle="dropdown" *ngIf="juridica">
             Juridica
           </a>
           <div class="dropdown-menu">

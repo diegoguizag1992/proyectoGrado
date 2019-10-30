@@ -1,0 +1,147 @@
+[debug] [2019-10-29T19:37:34.015Z] ----------------------------------------------------------------------
+[debug] [2019-10-29T19:37:34.018Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2019-10-29T19:37:34.018Z] CLI Version:   7.3.2
+[debug] [2019-10-29T19:37:34.018Z] Platform:      darwin
+[debug] [2019-10-29T19:37:34.019Z] Node Version:  v10.15.0
+[debug] [2019-10-29T19:37:34.020Z] Time:          Tue Oct 29 2019 14:37:34 GMT-0500 (GMT-05:00)
+[debug] [2019-10-29T19:37:34.020Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-29T19:37:34.032Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-29T19:37:34.033Z] > authorizing via signed-in user
+[debug] [2019-10-29T19:37:34.033Z] [iam] checking project aplicativowebmodulojuridica for permissions ["firebase.projects.get"]
+[debug] [2019-10-29T19:37:34.035Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/aplicativowebmodulojuridica:testIamPermissions  
+
+[debug] [2019-10-29T19:37:34.726Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-29T19:37:34.730Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/aplicativowebmodulojuridica  
+ 
+[debug] [2019-10-29T19:37:35.023Z] <<< HTTP RESPONSE 200
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[info] ✔  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions" for Cloud Functions...
+[debug] [2019-10-29T19:37:35.942Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions","node_version":"10.15.0"}
+[debug] [2019-10-29T19:37:35.942Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-29T19:37:35.948Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.1","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-29T19:37:35.949Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-29T19:37:35.951Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  ReferenceError: router is not defined
+    at Object.<anonymous> (/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js:3:1)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2019-10-29T19:38:17.671Z] File /Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js changed, reloading triggers
+[debug] [2019-10-29T19:38:17.770Z] File /Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js changed, reloading triggers
+[debug] [2019-10-29T19:38:19.523Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions","node_version":"10.15.0"}
+[debug] [2019-10-29T19:38:19.524Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-29T19:38:19.560Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.1","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-29T19:38:19.563Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-29T19:38:19.566Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  ReferenceError: router is not defined
+    at Object.<anonymous> (/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js:4:1)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2019-10-29T19:38:45.273Z] ----------------------------------------------------------------------
+[debug] [2019-10-29T19:38:45.276Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2019-10-29T19:38:45.276Z] CLI Version:   7.3.2
+[debug] [2019-10-29T19:38:45.276Z] Platform:      darwin
+[debug] [2019-10-29T19:38:45.276Z] Node Version:  v10.15.0
+[debug] [2019-10-29T19:38:45.277Z] Time:          Tue Oct 29 2019 14:38:45 GMT-0500 (GMT-05:00)
+[debug] [2019-10-29T19:38:45.277Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-29T19:38:45.323Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-29T19:38:45.323Z] > authorizing via signed-in user
+[debug] [2019-10-29T19:38:45.323Z] [iam] checking project aplicativowebmodulojuridica for permissions ["firebase.projects.get"]
+[debug] [2019-10-29T19:38:45.327Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/aplicativowebmodulojuridica:testIamPermissions  
+
+[debug] [2019-10-29T19:38:46.246Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-29T19:38:46.252Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/aplicativowebmodulojuridica  
+ 
+[debug] [2019-10-29T19:38:46.821Z] <<< HTTP RESPONSE 200
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[info] ✔  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions" for Cloud Functions...
+[debug] [2019-10-29T19:38:47.579Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions","node_version":"10.15.0"}
+[debug] [2019-10-29T19:38:47.579Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-29T19:38:47.583Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.1","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-29T19:38:47.584Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-29T19:38:47.585Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  ReferenceError: router is not defined
+    at Object.<anonymous> (/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js:4:1)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2019-10-29T19:48:59.716Z] File /Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js changed, reloading triggers
+[debug] [2019-10-29T19:49:03.529Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions","node_version":"10.15.0"}
+[debug] [2019-10-29T19:49:03.530Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-29T19:49:03.554Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.1","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-29T19:49:03.556Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-29T19:49:03.557Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  ReferenceError: nodemailer is not defined
+    at Object.<anonymous> (/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js:30:23)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2019-10-29T19:51:29.028Z] File /Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js changed, reloading triggers
+[debug] [2019-10-29T19:51:33.434Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions","node_version":"10.15.0"}
+[debug] [2019-10-29T19:51:33.436Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-29T19:51:33.471Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.1","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-29T19:51:33.472Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-29T19:51:33.473Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  ReferenceError: nodemailer is not defined
+    at Object.<anonymous> (/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js:30:23)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2019-10-29T19:52:27.771Z] File /Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js changed, reloading triggers
+[debug] [2019-10-29T19:52:29.261Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions","node_version":"10.15.0"}
+[debug] [2019-10-29T19:52:29.262Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[debug] [2019-10-29T19:52:29.267Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.6.1","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-10-29T19:52:29.268Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-10-29T19:52:29.269Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  ReferenceError: nodemailer is not defined
+    at Object.<anonymous> (/Users/Diego/Documents/Programacion/Angular/universidad cooperativa/proyectoGrado/functions/index.js:30:23)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Module.require (internal/modules/cjs/loader.js:637:17)
+    at require (internal/modules/cjs/helpers.js:22:18)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:677:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)

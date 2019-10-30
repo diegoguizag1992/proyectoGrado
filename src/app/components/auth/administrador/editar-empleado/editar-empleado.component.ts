@@ -17,9 +17,11 @@ export class EditarEmpleadoComponent implements OnInit {
   listaEmpleados: Array<Empleados>;
   empleados: Empleados = {};
 
+
   constructor(private activatedRoute: ActivatedRoute,
               private servicioEmpleados: EmpleadosService,
-              private router: Router) { }
+              private router: Router,
+              ) { }
 
   ngOnInit() {
     this.activatedRoute
@@ -46,7 +48,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.nombre.length <= 0) {
       Swal.fire(
         '',
-        `El perfil no puede ser vacio`,
+        `El nombre no puede ser vacio`,
         'warning'
       );
       this.empleados.nombre = null;
@@ -55,7 +57,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.nombre=== undefined) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El nombre no puede ser vacio',
         'info'
       );
       return;
@@ -63,7 +65,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.nombre.length <= 2) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El nombre no puede ser vacio',
         'info'
       );
       return;
@@ -72,7 +74,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.apellido.length <= 0) {
       Swal.fire(
         '',
-        `El perfil no puede ser vacio`,
+        `El apellido no puede ser vacio`,
         'warning'
       );
       this.empleados.apellido = null;
@@ -81,7 +83,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.apellido === undefined) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El apellido no puede ser vacio',
         'info'
       );
       return;
@@ -89,7 +91,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.apellido.length <= 2) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El apellido no puede ser vacio',
         'info'
       );
       return;
@@ -98,7 +100,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.departamento.length <= 0) {
       Swal.fire(
         '',
-        `El perfil no puede ser vacio`,
+        `El departamento no puede ser vacio`,
         'warning'
       );
       this.empleados.departamento = null;
@@ -107,7 +109,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.departamento === undefined) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El departamento no puede ser vacio',
         'info'
       );
       return;
@@ -115,7 +117,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.departamento.length <= 2) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El departamento no puede ser vacio',
         'info'
       );
       return;
@@ -124,7 +126,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.correo.length <= 0) {
       Swal.fire(
         '',
-        `El perfil no puede ser vacio`,
+        `El correo no puede ser vacio`,
         'warning'
       );
       this.empleados.correo = null;
@@ -133,7 +135,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.correo === undefined) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El correo no puede ser vacio',
         'info'
       );
       return;
@@ -141,7 +143,7 @@ export class EditarEmpleadoComponent implements OnInit {
     if (this.empleados.correo.length <= 2) {
       Swal.fire(
         '',
-        'El perfil no puede ser vacio',
+        'El correo no puede ser vacio',
         'info'
       );
       return;

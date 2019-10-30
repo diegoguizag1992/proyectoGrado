@@ -22,40 +22,43 @@ import { TipoRequerimientoComponent } from './components/auth/administrador/tipo
 import { ActualizarTipoRequerimientoComponent } from './components/auth/administrador/actualizar-tipo-requerimiento/actualizar-tipo-requerimiento.component';
 import { EditarPerfilComponent } from './components/auth/administrador/editar-perfil/editar-perfil.component';
 import { EditarEmpleadoComponent } from './components/auth/administrador/editar-empleado/editar-empleado.component';
+import { RespuestaComponent } from './components/auth/requerimientos/respuesta/respuesta.component';
 
 
 
 const routes: Routes = [
+  { path: '',  component: AdministradorComponent,
+  children: [
+   { path: 'perfil', component: CrearPerfilComponent },
+   { path: 'empleados', component: EmpleadosComponent },
+   { path: 'tipoRequerimiento', component: TipoRequerimientoComponent },
+   { path: 'eliminarTipoRequerimiento', component: EliminarTipoRequerimientoComponent },
+   { path: 'actualizarTipoReque/:id', component: ActualizarTipoRequerimientoComponent },
+   { path: 'eliminarPerfil', component: EliminarPerfilComponent },
+   { path: 'editarPerfil/:id', component: EditarPerfilComponent },
+   { path: 'eliminarEmpleado', component: EliminarEmpleadoComponent },
+   { path: 'editarEmpleado/:id', component: EditarEmpleadoComponent },
+   { path: 'principal', component: PrincipalComponent }
+  ]},
   { path: 'login', component: LoginComponent},
   { path: 'nuevoUsuario', component: NuevoUsuarioComponent},
   { path: 'perfiles', component: PerfilesComponent},
   { path: 'navbar', component: NavbarComponent},
   { path: 'JBolivar', component: PerfilComponent},
-  { path: 'principal', component: PrincipalComponent},
+  // { path: 'principal', component: PrincipalComponent},
   { path: 'requerimientos', component: RequerimientosComponent},
   { path: 'error404', component: Error404Component},
   { path: 'requerimiento', component: RequerimientoComponent},
   { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
   { path: 'administrador', component: AdministradorComponent},
+  { path: 'respuesta/:id', component: RespuestaComponent},
+  { path: '**', redirectTo: 'error404' },
   // { path: 'empleados', component: EmpleadosComponent},
   // { path: 'tipoRequerimiento', component: TipoRequerimientoComponent},
   // { path: 'perfil', component: CrearPerfilComponent},
   // { path: '', redirectTo: 'administrador', pathMatch: 'full' },
-  { path: '',  component: AdministradorComponent,
-    children: [
-     { path: 'perfil', component: CrearPerfilComponent },
-     { path: 'empleados', component: EmpleadosComponent },
-     { path: 'tipoRequerimiento', component: TipoRequerimientoComponent },
-     { path: 'eliminarTipoRequerimiento', component: EliminarTipoRequerimientoComponent },
-     { path: 'actualizarTipoReque/:id', component: ActualizarTipoRequerimientoComponent },
-     { path: 'eliminarPerfil', component: EliminarPerfilComponent },
-     { path: 'editarPerfil/:id', component: EditarPerfilComponent },
-     { path: 'eliminarEmpleado', component: EliminarEmpleadoComponent },
-     { path: 'editarEmpleado/:id', component: EditarEmpleadoComponent }
-    ]
-  },
   // { path: 'administrador', loadChildren: () => import(`./components/auth/administrador/administrador.module`).then(m => m.AdministradorModule) },
-  { path: '**', redirectTo: 'error404' }
+
 ];
 
 @NgModule({

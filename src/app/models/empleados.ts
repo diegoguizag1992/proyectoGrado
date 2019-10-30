@@ -10,4 +10,5 @@ export interface Empleados {
   departamento?: string;
   pass?: string;
   emailVerified?: boolean;
+  nombreCompleto?: string;
 }

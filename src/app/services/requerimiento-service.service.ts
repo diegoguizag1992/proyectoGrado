@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +18,23 @@ export class RequerimientoServiceService {
   listaRequerimientos: Observable<any>;
   requerimientos: Observable<any>;
 
+  DATOS = 'http://localhost:3000/peliculas';
+  configUrl = 'assets/config.json';
+
 
 
   constructor(private db: AngularFirestore,
-              private storage: AngularFireStorage) { }
+              private storage: AngularFireStorage,
+              private http: HttpClient) { }
 
 
 
-  crearPerfiles(perfil){
+
+  datosPersonajes() {
+    return this.http.get(`${this.DATOS}`);
+  }
+
+  crearPerfiles(perfil) {
     perfil.id = this.db.createId();
     this.db
       .collection('perfiles')
@@ -32,7 +42,7 @@ export class RequerimientoServiceService {
       .set(perfil);
   }
 
-  crearEmpleado(usuario){
+  crearEmpleado(usuario) {
     usuario.id = this.db.createId();
     this.db
       .collection('empleados')
@@ -40,17 +50,17 @@ export class RequerimientoServiceService {
       .set(usuario);
   }
 
-  informacionRequerimientos(){
+  informacionRequerimientos() {
     this.requerimientos = this.db.collection('requerimientos').valueChanges();
     return this.requerimientos;
   }
 
-  informacionEmpleados(){
+  informacionEmpleados() {
     this.empleados = this.db.collection('empleados').valueChanges();
     return this.empleados;
   }
 
-  crearRequerimiento(requerimiento){
+  crearRequerimiento(requerimiento) {
     requerimiento.id = this.db.createId();
     this.db
       .collection('requerimientos')
@@ -59,7 +69,7 @@ export class RequerimientoServiceService {
   }
 
   // Tipo requerimientos
-  crearTipoRequerimiento(tipoRequerimiento){
+  crearTipoRequerimiento(tipoRequerimiento) {
     tipoRequerimiento.id = this.db.createId();
     this.db
       .collection('tipoRequerimientos')
@@ -67,7 +77,7 @@ export class RequerimientoServiceService {
       .set(tipoRequerimiento);
   }
 
-  informacionTipoRequerimiento(){
+  informacionTipoRequerimiento() {
     this.listaRequerimientos = this.db.collection('tipoRequerimientos').valueChanges();
     return this.listaRequerimientos;
   }
@@ -78,7 +88,7 @@ export class RequerimientoServiceService {
     this.itemDoc.update(item);
   }
 
-  deleteTipoRequerimiento(infoRequerimiento){
+  deleteTipoRequerimiento(infoRequerimiento) {
     return this.db.collection('tipoRequerimientos').doc(infoRequerimiento).delete();
   }
 
@@ -95,10 +105,11 @@ export class RequerimientoServiceService {
   // Obtiene la informacion de una coleccion especifica
   public getCat() {
     return this.db.collection('requerimientos').doc('--stats--').snapshotChanges()
-    .pipe(map(action => {
+      .pipe(map(action => {
         const data = action.payload.data();
         const id = action.payload.id;
         return { id, ...data };
       })
-  )}
+      )
+  }
 }

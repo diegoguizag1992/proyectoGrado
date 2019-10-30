@@ -1,13 +1,13 @@
-<div class="container d-flex justify-content-center pt-5">
+<!-- <div class="container d-flex justify-content-center pt-5">
   <div class="card border-info" style="width: 18rem;">
     <div class="card-header text-center">Login</div>
     <div class="card-body text-info text-center">
         <form (ngSubmit)="loginEmpleado()">
-            <!-- <h5 class="card-title">Nombre:</h5>
+            <h5 class="card-title">Nombre:</h5>
             <input type="text" placeholder="Nombre ..."
                    value="nombre" class="form-control" name="nombre"
                    [(ngModel)]="empleados.nombre" required/>
-            <br> -->
+            <br>
             <h5 class="card-title">Email:</h5>
             <input type="text" placeholder="Email ..."
                    value="email" class="form-control" name="email"
@@ -25,6 +25,47 @@
           </form>
     </div>
   </div>
-</div>
+</div> -->
+
+<div class="container d-flex justify-content-center pt-4">
+    <div class="card d-flex border-white justify-content-center" style="width: 18rem;">
+      <img src="./assets/images/adminTres.png" class="card-img-top imagenLogin" alt="...">
+      <div class="row">
+          <div class="col-12">
+        <div class="card border-dark" style="width: 18rem;">
+          <div class="card-body text-dark text-center">
+            <form (ngSubmit)="loginEmpleado()">
+                <!-- <h5 class="card-title">Nombre:</h5>
+                <input type="text" placeholder="Nombre ..."
+                       value="nombre" class="form-control" name="nombre"
+                       [(ngModel)]="empleados.nombre" required/>
+                <br> -->
+                <h6 class="card-title">Email:</h6>
+                <input type="text" placeholder="Email ..."
+                       value="email" class="form-control" name="email"
+                       [(ngModel)]="empleados.email" required/>
+                <br>
+                <h6 class="card-title">Contraseña:</h6>
+                <input type="password" placeholder="Contrasena ..."
+                       value="nombre" class="form-control" name="nombre"
+                       [(ngModel)]="empleados.password" required/>
+                <br> <br>
+                <button class="btn btn-warning" type="submit"> Ingresar </button>
+                &nbsp; &nbsp;
+                <button class="btn btn-warning" type="button" (click)="atras()"> Atras </button>
+                <br>
+              </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <br> <br>
+
+
+
+    <router-outlet></router-outlet>
+
 
 <router-outlet></router-outlet>

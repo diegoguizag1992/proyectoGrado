@@ -24,8 +24,65 @@ export class NuevoUsuarioComponent implements OnInit {
   }
 
   loginEmpleado() {
-    this.servicioAuth.login(this.empleados.email, this.empleados.password);
-    this.router.navigate(["./administrador"])
+
+    if (this.empleados.email == null) {
+      this.empleados.email = null;
+      Swal.fire(
+        '',
+        `El email no puede ser vacio`,
+        'warning'
+      );
+      return;
+    }
+    if (this.empleados.email.length <= 0) {
+      Swal.fire(
+        '',
+        `El email puede ser vacio`,
+        'warning'
+      );
+      this.empleados.email= null;
+      return;
+    }
+    if (this.empleados.email === undefined) {
+      Swal.fire(
+        '',
+        'El email no puede ser vacio',
+        'info'
+      );
+      return;
+    }
+    if (this.empleados.password == null) {
+      this.empleados.password = null;
+      Swal.fire(
+        '',
+        `La contraseña no puede ser vacia`,
+        'warning'
+      );
+      return;
+    }
+    if (this.empleados.password.length <= 0) {
+      Swal.fire(
+        '',
+        `La contraseña no puede ser vacia`,
+        'warning'
+      );
+      this.empleados.password = null;
+      return;
+    }
+    if (this.empleados.password === undefined) {
+      Swal.fire(
+        '',
+        'La contraseña no puede ser vacia',
+        'info'
+      );
+      return;
+    }
+    if (this.empleados.email) {
+    if (this.empleados.password) {
+        this.servicioAuth.login(this.empleados.email, this.empleados.password);
+      return;
+    }
+  }
   }
 }
 
