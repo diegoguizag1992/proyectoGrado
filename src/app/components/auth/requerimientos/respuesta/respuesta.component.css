@@ -5,8 +5,8 @@
 .requerimiento{
   display: flex;
   /* top: 65px; */
-  height: 550px;
-  width: 1200px;
+  height: 520px;
+  width: 1250px;
 }
 
 .numeroRespuesta{
@@ -112,6 +112,23 @@
   top: 30px;
   left: 25px;
   width: 400px;
+}
+
+.estado{
+  display: inline;
+  display: flex;
+  position: absolute;
+  top: 265px;
+  left: 500px;
+}
+
+.inputEstado{
+  display: inline;
+  display: flex;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 200px;
 }
 
 .observaciones{

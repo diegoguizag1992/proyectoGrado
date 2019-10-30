@@ -66,7 +66,7 @@
         <!-- Columna Responder Requerimiento -->
         <ng-container matColumnDef="Responder">
             <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Responder </mat-header-cell>
-            <mat-cell *matCellDef="let row" (click)="responderRequerimiento(row.numero)" class="centrarTexto" type="button"> <a> <i class="fa fa-check text-success" aria-hidden="true"></i> </a>
+            <mat-cell *matCellDef="let row" (click)="responderRequerimiento(row.id)" class="centrarTexto" type="button"> <a> <i class="fa fa-check text-success" aria-hidden="true"></i> </a>
             </mat-cell>
           </ng-container>
 

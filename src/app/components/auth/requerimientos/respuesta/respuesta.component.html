@@ -5,50 +5,45 @@
         </div>
         <div class="card-body">
           <form  (ngSubmit)="crearRequerimiento()">
+
+      <!-- Numero requerimiento      -->
             <div class="container ">
               <div class="numeroRequerimiento"><i class="fa fa-hand-o-right text-info" aria-hidden="true"></i>
                 &nbsp; No. requerimiento:</div>
-                <input type="text" name="numero" style="width: 70px;" class="form-control numeroReque" [(ngModel)]="respuesta.numeroRequerimiento" value="{{respuesta.numeroRequerimiento}}">
+                <input type="text" name="numero" style="width: 70px;" class="form-control numeroReque" readonly="readonly" [(ngModel)]="seguimiento.numero" value="{{seguimiento.numero}}">
             </div>
+
+      <!-- numero seguimiento     -->
             <div class="container ">
                 <div class="numeroRespuesta"><i class="fa fa-hand-o-right text-info" aria-hidden="true"></i>
                   &nbsp; No. seguimiento:</div>
-                  <input type="text" name="respuesta" style="width: 70px;" class="form-control inputRespuest" [(ngModel)]="respuesta.codigo" value="{{requerimiento.numero}}">
+                  <input type="text" name="respuesta" style="width: 70px;" readonly="readonly" class="form-control inputRespuest" [(ngModel)]="infoSeguimiento.numeroSeguimiento" value="{{infoSeguimiento.numeroSeguimiento}}">
               </div>
             <br>
-              <div class="container tipoRequerimiento">
-                  <div class="tipoReque mt-4"><i class="fa fa-check-square-o text-info" aria-hidden="true"></i> &nbsp; Tipo de
-                      Requerimiento:</div>
-                  <div class="fechaReque mt-4"><i class="fa fa-calendar-o text-info" aria-hidden="true"></i> &nbsp; &nbsp; Fecha de
-                      Requerimiento:</div>
-              </div>
 
     <!-- Lista Tipo de Requerimiento -->
+              <div class="tipoReque mt-4"><i class="fa fa-check-square-o text-info" aria-hidden="true"></i> &nbsp; Tipo de
+                  Requerimiento:</div>
               <div class="container selectTipoReuqe">
-                <select class="form-control"  id="name" required
-                        [(ngModel)]="requerimiento.name" name="name">
-                      <option *ngFor="let lista of tipoRequerimientos| async" [value]="lista.name">{{lista.name}}</option>
-                </select>
+                  <input type="text" name="listaTipo" style="width: 350px;" class="form-control" readonly="readonly" [(ngModel)]="infoSeguimiento.tipoRequerimiento" value="{{infoSeguimiento.tipoRequerimiento}}">
               </div>
 
     <!-- Responsable -->
-            <div class="divEmpleado"><i class="fa fa-user-o text-info" aria-hidden="true"></i>
+            <div class="divEmpleado"><i class="fa fa-user-o text-info"></i>
               &nbsp; &nbsp;
               Responsable </div>
               <div class="selectEmpleado mt-5">
-                  <select class="form-control"  id="nombre" required
-                  [(ngModel)]="requerimiento.empleado" name="nombre">
-                  <option *ngFor="let requerimiento of listaResponsable | async" [value]="requerimiento.nombreCompleto">{{requerimiento.nombreCompleto}} </option>
-                  </select>
+                  <input type="text" name="responsable" readonly="readonly" style="width: 350px;" class="form-control" [(ngModel)]="infoSeguimiento.responsable" [value]="infoSeguimiento.responsable">
               </div>
 
     <!-- Lista responsable seguimineto -->
               <div class="divSeguimineto"><i class="fa fa-user-o text-info" aria-hidden="true"></i>
                 &nbsp; &nbsp;
                 Responsable seguimiento </div>
+
                 <div class="selectSeguimineto mt-5">
-                    <select class="form-control"  id="nombre" required
-                    [(ngModel)]="requerimiento.empleado" name="nombre" style="width: 350px;">
+                    <select class="form-control"  id="resSeguimiento" required
+                    [(ngModel)]="infoSeguimiento.responsableSeguimiento" name="resSeguimiento" style="width: 350px;">
                     <option *ngFor="let requerimiento of listaResponsable | async" [value]="requerimiento.nombreCompleto">{{requerimiento.nombreCompleto}} </option>
                     </select>
                 </div>
@@ -56,13 +51,22 @@
      <!-- Asunto  -->
             <div class="asunto"><i class="fa fa-folder-o text-info" aria-hidden="true"></i>
               &nbsp; &nbsp; Asunto:
-              <input name="nuReq" [(ngModel)]="requerimiento.asunto" id="nuReq" type="text" aria-label="First name" class="form-control inputAsunto">
+              <input name="asunto" [(ngModel)]="infoSeguimiento.asuntoSeguimiento" id="asunto" type="text" aria-label="First name" class="form-control inputAsunto">
+            </div>
+
+      <!-- Estado  inputEstado -->
+             <div class="estado"> <i class="fa fa-folder-o text-info" aria-hidden="true"></i>
+              &nbsp; &nbsp; Estado requerimiento:
+              <select class="form-control inputEstado"  id="estadoSeguimiento" required
+                        [(ngModel)]="infoSeguimiento.estado" name="estadoSeguimiento">
+                      <option *ngFor="let lista of listaEstado" [value]="lista.name">{{lista.name}}</option>
+                </select>
             </div>
      <!-- observaciones -->
             <div class="divObservaciones"><i class="fa fa-pencil-square-o text-info" aria-hidden="true"></i>
               &nbsp; &nbsp; Observaciones:
             </div>
-              <textarea [(ngModel)]="requerimiento.observaciones" class="form-control observaciones" name="requerimiento.observaciones" rows="3"></textarea>
+              <textarea [(ngModel)]="infoSeguimiento.observaciones" class="form-control observaciones" name="requerimientoObservaciones" rows="3"></textarea>
             <button type="submit" class="btn btn-outline-warning botonCrear">Crear</button>
           </form>
 
@@ -102,12 +106,13 @@
         </div>
 
 <!-- Button calendario -->
+        <div class="fechaReque mt-4"><i class="fa fa-calendar-o text-info" aria-hidden="true"></i> &nbsp; &nbsp; Fecha seguimiento:</div>
         <div class="col-6 fechaRequerimiento">
             <form class="form-inline">
                 <div class="form-group">
                   <div class="input-group">
                     <input class="form-control" placeholder="yyyy-mm-dd"
-                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                           name="dp" [(ngModel)]="fecha" ngbDatepicker #d="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                     </div>
@@ -115,7 +120,6 @@
                 </div>
               </form>
         </div>
-            <br>
         </div>
     </div>
 </div>

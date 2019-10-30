@@ -44,16 +44,6 @@ export class RequerimientoComponent implements OnInit {
     this.listaResponsable = this.servicioRequerimiento.informacionEmpleados();
     this.listaResponsable.subscribe(data => {
       this.listaEmpleados = data;
-      // for (const iterator in data) {
-      //     this.listaEmpleados = iterator;
-      console.log(this.listaEmpleados);
-
-      // }
-
-      // console.log(this.listaEmpleados.nombre);
-
-      // this.nombre = `${this.listaEmpleados.nombre} ${this.listaEmpleados.apellido}`;
-      // console.log('Este es', this.listaEmpleados);
     })
 
     // Trae el numero de consecutivo de la base de datos
@@ -62,22 +52,14 @@ export class RequerimientoComponent implements OnInit {
       this.numero = data;
       this.requerimiento.numero = this.numero.numero;
       this.requerimiento.numero += 1;
-
-      console.log(this.model);
-
     })
 
   }
 
   ngOnInit() {
-    console.log(this.fecha.fecha);
-
   }
 
-
-
   crearRequerimiento() {
-
 
     if (this.requerimiento.name == null) {
       this.requerimiento.name = null;
@@ -183,40 +165,38 @@ export class RequerimientoComponent implements OnInit {
       );
       return;
     }
-    // if (this.requerimiento.fecha == null) {
-    //   this.requerimiento.fecha = null;
-    //   Swal.fire(
-    //     '',
-    //     `La fecha no puede ser nula`,
-    //     'warning'
-    //   );
-    //   return;
-    // }
-    // if (this.requerimiento.fecha.length <= 0) {
-    //   Swal.fire(
-    //     '',
-    //     `La fecha no pueden ser vacia`,
-    //     'warning'
-    //   );
-    //   this.requerimiento.fecha = null;
-    //   return;
-    // }
-    // if (this.requerimiento.fecha === undefined) {
-    //   Swal.fire(
-    //     '',
-    //     'La fecha no pueden ser vacia',
-    //     'info'
-    //   );
-    //   return;
-    // }
+    if (this.requerimiento.fecha == null) {
+      this.requerimiento.fecha = null;
+      Swal.fire(
+        '',
+        `La fecha no puede ser nula`,
+        'warning'
+      );
+      return;
+    }
+    if (this.requerimiento.fecha.length <= 0) {
+      Swal.fire(
+        '',
+        `La fecha no pueden ser vacia`,
+        'warning'
+      );
+      this.requerimiento.fecha = null;
+      return;
+    }
+    if (this.requerimiento.fecha === undefined) {
+      Swal.fire(
+        '',
+        'La fecha no pueden ser vacia',
+        'info'
+      );
+      return;
+    }
     if (this.requerimiento.name) {
       if (this.requerimiento.empleado) {
         if (this.requerimiento.asunto) {
           if (this.requerimiento.observaciones) {
-            // if (this.requerimiento.fecha) {
-            // Crea registro de requerimiento en la base d edatos.
-
-
+            if (this.requerimiento.fecha) {
+            //Crea registro de requerimiento en la base d edatos.
                 this.requerimiento.fecha = `${this.model.day} / ${this.model.month} / ${this.model.year}`;
                 // var fecha: any = new Date();
                 // fecha.toLocaleDateString("es-ES", this.model);
@@ -238,9 +218,9 @@ export class RequerimientoComponent implements OnInit {
               }
               this.router.navigate(['/requerimientos']);
             }
-      }
+       }
+     }
     }
-    // }
   }
 
   // Codigo adjuntar documentos en firebasse
