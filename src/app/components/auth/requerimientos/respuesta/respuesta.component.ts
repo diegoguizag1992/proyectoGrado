@@ -52,10 +52,10 @@ export class RespuestaComponent implements OnInit {
             this.infoRequerimientos = parametro;
             this.seguimiento = this.infoRequerimientos.find(data => data.id === this.id);
 
-            this.estado = this.servicioSeguimiento.informacionSeguimiento();
+            this.estado = this.servicioSeguimiento.informacionEstado();
             this.estado.subscribe(data => {
               this.listaEstado = data;
-              console.log('este es:', this.listaEstado);
+              console.log('este es ok:', this.listaEstado);
             });
 
             // Informacion empleados.

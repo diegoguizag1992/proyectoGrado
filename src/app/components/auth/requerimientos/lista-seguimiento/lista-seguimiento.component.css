@@ -24,16 +24,16 @@
 }
 
 .mat-row:nth-child(even){
-  background-color:rgb(211, 211, 211)
+  background-color: rgb(254, 254, 254)
 }
 
 .mat-row:nth-child(odd){
-  background-color:rgb(253, 253, 253)
+  background-color: rgb(205, 220, 223)
 }
 
 .encabezado{
     text: center;
-    background-color: rgb(181, 174, 202);
+    background-color: rgb(171, 179, 208);
 }
 
 .centrarTexto{
@@ -50,6 +50,7 @@ table {
 }
 
 .colorLink{
-  background-color: #838088;
-  color:#BB8FCE;
+  color: #21618C;
 }
+
+

@@ -11,14 +11,20 @@ export class SeguimientoService {
 
   private itemDoc: AngularFirestoreDocument<any>;
   seguimiento: Observable<any>;
+  estadoSeguimiento: Observable<any>;
 
   constructor(private db: AngularFirestore,
-    private storage: AngularFireStorage) { }
+              private storage: AngularFireStorage) { }
 
 
   informacionSeguimiento() {
-    this.seguimiento = this.db.collection('estadoSeguimiento').valueChanges();
+    this.seguimiento = this.db.collection('seguimiento').valueChanges();
     return this.seguimiento;
+  }
+
+  informacionEstado() {
+    this.estadoSeguimiento = this.db.collection('estadoSeguimiento').valueChanges();
+    return this.estadoSeguimiento;
   }
 
   public numeroSeguimiento() {

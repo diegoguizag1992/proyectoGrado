@@ -1,10 +1,8 @@
-<br>
 <div class="container">
-  <div class="container d-flex justify-content-center mt-3">
-    <h5 style="color:grey"> Lista requerimientos</h5>
-  </div>
-  <br>
-
+    <div class="container d-flex justify-content-center mt-3">
+        <h5 style="color:grey"> Lista seguimientos</h5>
+    </div>
+    <br>
   <div class="course">
 
     <!-- New part: this is the search box -->
@@ -26,34 +24,40 @@
   </div>
   <div class="example-container mat-elevation-z8" style="text-align: center;">
       <mat-table [dataSource]="dataSource" matSort>
-        <!--  Columna ID-->
+        <!--  Columna No requerimiento-->
         <ng-container matColumnDef="No. requerimiento">
-              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto">No. requerimietno</mat-header-cell>
-              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.numero}} </mat-cell>
-        </ng-container>
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto">No. requerimietno</mat-header-cell>
+            <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.numeroRequerimiento}} </mat-cell>
+      </ng-container>
+
+      <!-- Columna No seguimiento -->
+      <ng-container matColumnDef="Nombre">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto">No. seguimiento</mat-header-cell>
+            <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.numeroSeguimiento}} </mat-cell>
+      </ng-container>
 
         <!-- Columna Nombre -->
-        <ng-container matColumnDef="Nombre">
-              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Nombre</mat-header-cell>
-              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.empleado}} </mat-cell>
+        <ng-container matColumnDef="responsable">
+              <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Responsable seguimiento</mat-header-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.responsableSeguimiento}} </mat-cell>
         </ng-container>
 
         <!-- Columna Fecha -->
         <ng-container matColumnDef="Fecha">
             <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Fecha</mat-header-cell>
-            <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.fecha}} </mat-cell>
+            <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.fechaSeguimiento}} </mat-cell>
       </ng-container>
 
         <!-- Columna Tipo Requerimiento-->
         <ng-container matColumnDef="Requerimiento">
               <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto">Tipo requerimiento </mat-header-cell>
-      <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.name}} </mat-cell>
+      <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.tipoRequerimiento}} </mat-cell>
         </ng-container>
 
         <!-- Columna Asunto -->
         <ng-container matColumnDef="Asunto">
               <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Asunto</mat-header-cell>
-              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.asunto}} </mat-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.asuntoSeguimiento}} </mat-cell>
         </ng-container>
 
          <!-- Columna Observaciones -->
@@ -65,20 +69,20 @@
         <!-- Columna link Doc Adjuntos -->
         <ng-container matColumnDef="Adjunto">
           <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Doc adjunto </mat-header-cell>
-          <mat-cell *matCellDef="let row" class="centrarTexto"> <a class="text-info" href="{{row.docAdjunto}}"> adjunto</a></mat-cell>
+          <mat-cell *matCellDef="let row" class="centrarTexto"> <a class="text-success" href="{{row.docAdjunto}}"> adjunto</a></mat-cell>
         </ng-container>
+
+         <!-- Columna Estado -->
+         <ng-container matColumnDef="Estado">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Estado </mat-header-cell>
+          <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.estado}} </mat-cell>
+          </ng-container>
 
         <!-- Columna Responder Requerimiento -->
         <ng-container matColumnDef="Responder">
-            <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Seguimiento </mat-header-cell>
-            <mat-cell *matCellDef="let row" (click)="responderRequerimiento(row.id)" class="centrarTexto"> <a type="submit"> <i class="fa fa-check text-success"></i> </a>
-            </mat-cell>
-          </ng-container>
-
-        <!-- Columna ver requerimiento -->
-        <ng-container matColumnDef="Ver">
-          <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Ver info requerimiento </mat-header-cell>
-          <mat-cell *matCellDef="let row" (click)="verRequerimiento(row.id)" class="centrarTexto"> <a type="submit"> <i class="fa fa-file-text-o text-danger" aria-hidden="true"></i> </a>
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Ver seguimiento </mat-header-cell>
+            <mat-cell *matCellDef="let row" class="centrarTexto colorLink" type="button" (click)="datosSeguimiento(row.id)"   data-toggle="modal" data-target="#exampleModal"> <a class="colorLink"> <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+            </a>
           </mat-cell>
         </ng-container>
 

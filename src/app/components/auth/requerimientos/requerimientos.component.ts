@@ -30,4 +30,8 @@ export class RequerimientosComponent implements OnInit {
     this.router.navigate(["./respuestaRequerimientos"]);
   }
 
+  listaSeguimientos(){
+    this.router.navigate(["./listaSeguimientos"]);
+  }
+
 }

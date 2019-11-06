@@ -1,3 +1,4 @@
+import { VerComponent } from './components/auth/requerimientos/ver/ver.component';
 import { TipoRequerimiento } from './models/tipoRequerimiento';
 import { EliminarEmpleadoComponent } from './components/auth/administrador/eliminar-empleado/eliminar-empleado.component';
 import { EliminarPerfilComponent } from './components/auth/administrador/eliminar-perfil/eliminar-perfil.component';
@@ -23,6 +24,8 @@ import { ActualizarTipoRequerimientoComponent } from './components/auth/administ
 import { EditarPerfilComponent } from './components/auth/administrador/editar-perfil/editar-perfil.component';
 import { EditarEmpleadoComponent } from './components/auth/administrador/editar-empleado/editar-empleado.component';
 import { RespuestaComponent } from './components/auth/requerimientos/respuesta/respuesta.component';
+import { ListaSeguimientoComponent } from './components/auth/requerimientos/lista-seguimiento/lista-seguimiento.component';
+import { VerSeguimientoComponent } from './components/auth/requerimientos/ver-seguimiento/ver-seguimiento.component';
 
 
 
@@ -51,7 +54,10 @@ const routes: Routes = [
   { path: 'requerimiento', component: RequerimientoComponent},
   { path: 'respuestaRequerimientos', component: RespuestaRequerimientosComponent},
   { path: 'administrador', component: AdministradorComponent},
+  { path: 'listaSeguimientos', component: ListaSeguimientoComponent},
   { path: 'respuesta/:id', component: RespuestaComponent},
+  { path: 'ver/:id', component: VerComponent},
+  { path: 'verSeguimiento/:id', component: VerSeguimientoComponent},
   { path: '**', redirectTo: 'error404' },
   // { path: 'empleados', component: EmpleadosComponent},
   // { path: 'tipoRequerimiento', component: TipoRequerimientoComponent},

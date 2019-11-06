@@ -50,6 +50,9 @@ import { FechaPipe } from './pipes/fecha.pipe';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { RespuestaComponent } from './components/auth/requerimientos/respuesta/respuesta.component';
+import { ListaSeguimientoComponent } from './components/auth/requerimientos/lista-seguimiento/lista-seguimiento.component';
+import { VerComponent } from './components/auth/requerimientos/ver/ver.component';
+import { VerSeguimientoComponent } from './components/auth/requerimientos/ver-seguimiento/ver-seguimiento.component';
 
 
 
@@ -81,6 +84,9 @@ import { RespuestaComponent } from './components/auth/requerimientos/respuesta/r
     EditarEmpleadoComponent,
     FechaPipe,
     RespuestaComponent,
+    ListaSeguimientoComponent,
+    VerComponent,
+    VerSeguimientoComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,7 +120,7 @@ import { RespuestaComponent } from './components/auth/requerimientos/respuesta/r
   providers: [ //{ provide: MatPaginatorIntl, useClass: PaginatorEspañol },
     AuthServiceService, MatDatepickerModule
   ],
-  bootstrap: [AppComponent
+  bootstrap: [AppComponent,
     ],
   exports: [
     RouterModule,

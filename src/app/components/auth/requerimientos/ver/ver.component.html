@@ -1,0 +1,34 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card border-dark mb-3" style="max-width: 36rem;">
+      <div class="card-header text-center">Información Requerimiento</div>
+      <div class="card-body text-dark">
+        <br>
+        <h4 class="card-title"> Numero requerimiento: &nbsp; &nbsp; &nbsp; {{ requerimientos.numero }} </h4>
+        <br>
+        <h5 class="card-title"> Responsable: &nbsp; &nbsp; &nbsp; {{ requerimientos.empleado }} </h5>
+        <h5 class="card-title"> Fecha: &nbsp; &nbsp; &nbsp; {{ requerimientos.fecha }} </h5>
+        <h6 class="card-title"> Tipo: &nbsp; &nbsp; &nbsp; {{ requerimientos.name }} </h6>
+         <br>
+         <h6 class="card-title"> Asunto: &nbsp; &nbsp; &nbsp; {{ requerimientos.asunto }} </h6>
+         <h6 class="card-title"> Observaciones: &nbsp; &nbsp; &nbsp; {{ requerimientos.observaciones }} </h6>
+         <br>
+         <div class="container text-right">
+            <a class="card-text" href="{{requerimientos.docAdjunto}}">Adjuntos</a>
+         </div>
+         <br>  <br>
+        <div class=" text-center">
+            <button mat-raised-button class="boton" (click)="atras()">Atras</button>
+        </div>
+         <br>
+        </div>
+    </div>
+  </div>
+  <br />
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+
+<router-outlet></router-outlet>

@@ -18,7 +18,7 @@ import { MatSort, MatPaginator } from '@angular/material';
 
 export class RespuestaRequerimientosComponent implements OnInit {
 
-  displayedColumns = ['Id', 'Nombre', 'Fecha', 'Requerimiento', 'Asunto', 'Observaciones', 'Adjunto', 'Responder'];
+  displayedColumns = ['No. requerimiento', 'Nombre', 'Fecha', 'Requerimiento', 'Asunto', 'Observaciones', 'Adjunto', 'Responder', 'Ver'];
   dataSource: any = {};
   fecha = {};
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -64,8 +64,12 @@ export class RespuestaRequerimientosComponent implements OnInit {
     this.router.navigate(['/requerimientos']);
   }
 
-  responderRequerimiento(datos: Requerimiento){
+  responderRequerimiento(datos: Requerimiento) {
    this.router.navigate(['/respuesta', datos]);
+  }
+
+  verRequerimiento(datos: Requerimiento) {
+    this.router.navigate(['/ver', datos]);
   }
 
 }

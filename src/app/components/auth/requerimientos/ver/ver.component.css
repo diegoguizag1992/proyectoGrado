@@ -1,0 +1,68 @@
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+.containerLogin{
+  background-color: rgba(207, 204, 204, 0.454);
+  text-align:center;
+  width: 500px;
+  height: 400px;
+}
+
+.titulo{
+  font-family: 'Arial Narrow Bold Italic', arial;
+  font-size: 25px;
+  color: #4a4a4a;
+}
+
+
+.loginTitulo{
+  width: 100%;
+	margin-right: auto;
+  margin-left: auto;
+  font-style: normal;
+  font-variant: normal;
+  padding: 20px;
+}
+
+
+
+.boton{
+  background-color: #252b35;
+  color: aliceblue;
+}
+
+.plan{
+  position: absolute;
+  display: inline;
+  color: aliceblue;
+}
+
+.parrafoPlan{
+  position: absolute;
+  display: inline;
+  font-family: 'Arial Narrow', arial;
+  font-size: 18px;
+  top: 300px;
+}
+
+.parrafo{
+  position: absolute;
+  display: inline;
+  top: 250px;
+  font-family: 'Arial Narrow', arial;
+  font-size: 30px;
+}
+
