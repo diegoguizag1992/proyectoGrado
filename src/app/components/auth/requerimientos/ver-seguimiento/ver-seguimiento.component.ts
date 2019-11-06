@@ -38,7 +38,7 @@ export class VerSeguimientoComponent implements OnInit {
       });
   }
   atras() {
-    this.router.navigate(['/respuestaRequerimientos']);
+    this.router.navigate(['/listaSeguimientos']);
   }
 
 }

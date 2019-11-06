@@ -3,7 +3,7 @@
   <table class="table table-hover table-bordered col-4">
       <thead>
           <tr class="perfiles2">
-              <th scope="col" colspan="2">Seleccione el Perfil</th>
+              <th scope="col" colspan="2" class="tituloTabla">Seleccione el Perfil</th>
           </tr>
           <tr class="perfiles">
               <th scope="col">Perfil</th>
@@ -13,7 +13,7 @@
       <tbody>
         <tr class="text-center" *ngFor="let perfil of perfiles | async">
           <th scope="row">{{perfil.name}}</th>
-          <td> <a [routerLink]="[perfil.path]"><i class="fa fa-check-square fa-lg text-success" aria-hidden="true"></i></a></td>
+          <td> <a [routerLink]="[perfil.path]"><i class="fa fa-arrow-right text-info" aria-hidden="true"></i> </a></td>
         </tr>
       </tbody>
   </table>
