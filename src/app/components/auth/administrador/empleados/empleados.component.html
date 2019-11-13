@@ -1,44 +1,50 @@
-<div class="card">
-    <div class="container d-flex justify-content-center pt-5">
-        <div class="card border-success" style="width: 20rem;">
-          <div class="card-header text-center text-success">Crear empleado</div>
-          <div class="card-body text-success text-center">
-              <form (ngSubmit)="crearEmpleado()">
-                <br>
-                <div class="container text-secondary">
-                      Nombres:<input type="text" placeholder="Nombres ..."
-                              class="form-control" name="nombre"
-                              [(ngModel)]="empleado.nombre" required/>
-                </div>
-                <br>
-                <div class="container text-secondary">
-                    Apellidos:<input type="text" placeholder="Apellidos ..."
-                    class="form-control" name="nombre"
-                    [(ngModel)]="empleado.apellido" required/>
-                <br>
-                </div>
-                <div class="container text-secondary">
-                    Area:<input type="text" placeholder="Area ..."
-                    class="form-control " name="nombre"
-                    [(ngModel)]="empleado.departamento" required/>
-                <br>
-                </div>
-                <div class="container text-secondary">
-                    Correo:<input type="text" placeholder="Correo ..."
-                            class="form-control" name="nombre"
-                            [(ngModel)]="empleado.correo" required/>
-                </div>
-                <br> <br>
+
+<div class="container d-flex  justify-content-center">
+    <div class="card" style="width: 36rem;">
+        <div class="card-body">
+          <h5 class="card-title text-secondary">Creación empleados</h5>
+          <br>
+          <form (ngSubmit)="crearEmpleado()">
+          <div class="empleados">
+              <div class="container">
+                  <p class="d-flex justify-content-start">Nombre:</p>
+                  <input class="form-control" name="nombre" type="text" [(ngModel)]="empleado.nombre" placeholder="Nombre. .">
+
+              </div>
+              <div class="container">
+                  <p class="d-flex justify-content-start">Apellido:</p>
+                  <input type="text" placeholder="Apellidos ..."
+                  class="form-control" name="apellidos"
+                  [(ngModel)]="empleado.apellido"/>
+              </div>
+            </div>
+            <br>
+            <div class="empleados">
+              <div class="container">
+                  <p class="d-flex justify-content-start">Departamento:</p>
+                  <select class="form-control"  id="departamento"
+                  [(ngModel)]="empleado.departamento" name="departamento">
+                   <option *ngFor="let lista of listaDepartamentos" [value]="lista.nombre">{{lista.nombre}}</option>
+                 </select>
+              </div>
+              <div class="container">
+                  <p class="d-flex justify-content-start">Correo:</p>
+                <input type="text" placeholder="Correo ..."
+                class="form-control" name="correo"
+                [(ngModel)]="empleado.correo"/>
+              </div>
+            </div>
+            <br> <br>
+            <div class="empleados">
+              <div class="container">
                   <button class="btn btn-dark" type="submit"> Crear </button>
-                  &nbsp; &nbsp;
+              </div>
+              <div class="container">
                   <button class="btn btn-dark" type="button" (click)="atras()"> Atras </button>
-                  <br>
-
-              </form>
-          </div>
-        </div>
+              </div>
+            </div>
+        </form>
       </div>
-      <br> <br>
   </div>
-  <br> <br>
-
+<br>
+</div>

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { RequerimientoServiceService } from 'src/app/services/requerimiento-service.service';
 import { Perfil } from 'src/app/models/perfil';
 import Swal from 'sweetalert2'
+import { EmpleadosService } from 'src/app/services/empleados.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,24 +15,23 @@ import Swal from 'sweetalert2'
 export class CrearPerfilComponent implements OnInit {
 
   informacionPerfil: Perfil = {};
+  departamentos: Observable<any[]>;
+  listaDepartamentos: any[] = [];
+
   constructor(private router: Router,
-              private serviceRequerimiento: RequerimientoServiceService) { }
+    private serviceRequerimiento: RequerimientoServiceService,
+    private servicioEmpleados: EmpleadosService, ) { }
 
   ngOnInit() {
+    this.departamentos = this.servicioEmpleados.informacionDepartamentos();
+    this.departamentos.subscribe(data => {
+      this.listaDepartamentos = data;
+    })
   }
 
-  crear(){
+  crear() {
 
-    if (this.informacionPerfil.name == null) {
-      this.informacionPerfil.name = null;
-      Swal.fire(
-        '',
-        `El nombre del perfil no puede ser nulo`,
-        'warning'
-      );
-      return;
-    }
-    if (this.informacionPerfil.name.length <= 0) {
+    if (this.informacionPerfil.name == null || this.informacionPerfil.name.length == 0 || /^\s+$/.test(this.informacionPerfil.name)) {
       Swal.fire(
         '',
         `El nombre del perfil no puede ser vacio`,
@@ -38,25 +39,8 @@ export class CrearPerfilComponent implements OnInit {
       );
       this.informacionPerfil.name = null;
       return;
-    }
-    if (this.informacionPerfil.name === undefined) {
-      Swal.fire(
-        '',
-        'El nombre del perfil no puede ser vacio',
-        'info'
-      );
-      return;
-    }
-    if (this.informacionPerfil.path == null) {
-      this.informacionPerfil.path = null;
-      Swal.fire(
-        '',
-        `La ruta del perfil no puede ser nula`,
-        'warning'
-      );
-      return;
-    }
-    if (this.informacionPerfil.path.length <= 0) {
+    } else if (this.informacionPerfil.path == null || this.informacionPerfil.path.length == 0
+              || /^\s+$/.test(this.informacionPerfil.path)) {
       Swal.fire(
         '',
         `La ruta del perfil no puede ser vacia`,
@@ -65,16 +49,9 @@ export class CrearPerfilComponent implements OnInit {
       this.informacionPerfil.path = null;
       return;
     }
-    if (this.informacionPerfil.path === undefined) {
-      Swal.fire(
-        '',
-        'La ruta del perfil no puede ser vacia',
-        'info'
-      );
-      return;
-    }
+
     if (this.informacionPerfil.name) {
-      if(this.informacionPerfil.path){
+      if (this.informacionPerfil.path) {
         this.serviceRequerimiento.crearPerfiles(this.informacionPerfil);
         Swal.fire(
           '',
@@ -86,7 +63,7 @@ export class CrearPerfilComponent implements OnInit {
     }
   }
 
-  atras(){
+  atras() {
     this.router.navigate(["./administrador"])
   }
 }

@@ -11,6 +11,8 @@ export class EmpleadosService {
 
   private itemDoc: AngularFirestoreDocument<Empleados>;
   empleados: Observable<any>;
+  departamentos: Observable<any>;
+
 
   constructor(private db: AngularFirestore,
               private storage: AngularFireStorage) { }
@@ -19,6 +21,11 @@ export class EmpleadosService {
   infoEmpleados() {
     this.empleados = this.db.collection('empleados').valueChanges();
     return this.empleados;
+  }
+
+  informacionDepartamentos(){
+    this.departamentos = this.db.collection('Departamentos').valueChanges();
+    return this.departamentos;
   }
 
   deleteEmpleado(infoEmpleado){

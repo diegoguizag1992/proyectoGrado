@@ -8,3 +8,26 @@
   margin: auto;
 }
 
+
+
+.containerLogin{
+  background-color: rgba(207, 204, 204, 0.454);
+ text-align:center;
+}
+
+.registro{
+ display: flex;
+ justify-content: center;
+ flex-direction: row;
+}
+
+
+.nombre{
+  font-size: 10px;
+}
+
+.empleados{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}

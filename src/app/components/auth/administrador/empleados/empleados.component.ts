@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequerimientoServiceService } from 'src/app/services/requerimiento-service.service';
 import Swal from 'sweetalert2'
+import { EmpleadosService } from 'src/app/services/empleados.service';
+import { SeguimientoService } from 'src/app/services/seguimiento.service';
+import { Observable } from 'rxjs';
+import { Seguimiento } from 'src/app/models/seguimiento';
 
 @Component({
   selector: 'app-empleados',
@@ -12,92 +16,66 @@ import Swal from 'sweetalert2'
 export class EmpleadosComponent implements OnInit {
 
   empleado: Empleados = {};
+  // departamentos: any = {};
+  departamentos: Observable<any[]>;
+  listaDepartamentos: any[] = [];
+  estado: Observable<any[]>;
+  listaEstado: any[] = [];
+  infoSeguimiento: Seguimiento = {};
+
+
   constructor(private router: Router,
-    private serviceRequerimiento: RequerimientoServiceService) { }
+    private serviceRequerimiento: RequerimientoServiceService,
+    private servicioEmpleados: EmpleadosService,
+    private servicioSeguimiento: SeguimientoService) { }
 
   ngOnInit() {
+    this.departamentos = this.servicioEmpleados.informacionDepartamentos();
+    this.departamentos.subscribe(data => {
+      this.listaDepartamentos = data;
+      console.log('este es', this.listaDepartamentos);
+
+    });
   }
 
-  crearEmpleado(){
+  crearEmpleado() {
 
-    if (this.empleado.nombre == null) {
-      this.empleado.nombre= null;
+    if (this.empleado.nombre == null || this.empleado.nombre.length == 0 || /^\s+$/.test(this.empleado.nombre)) {
       Swal.fire(
         '',
-        `El nombre del empleado no puede ser nulo`,
+        `El nombre no puede ser vacio`,
+        'warning'
+      );
+      this.empleado.correo = null;
+      return;
+    } else if (!(/([a-z\xc0-\xff]+)$/i.test(this.empleado.nombre))) {   // Valida que el input no contenga numeros
+      Swal.fire(
+        '',
+        'El nombre no puede contener nùmeros',
         'warning'
       );
       return;
     }
-    if (this.empleado.nombre.length <= 0) {
-      Swal.fire(
-        '',
-        `El nombre del empleado no puede ser vacio`,
-        'warning'
-      );
-      this.empleado.nombre = null;
-      return;
-    }
-    if (this.empleado.nombre === undefined) {
-      Swal.fire(
-        '',
-        'El nombre del empleado no puede ser vacio',
-        'info'
-      );
-      return;
-    }
-    if (this.empleado.apellido == null) {
-      this.empleado.apellido = null;
-      Swal.fire(
-        '',
-        `El apellido no puede ser nula`,
-        'warning'
-      );
-      return;
-    }
-    if (this.empleado.apellido.length <= 0) {
+
+    // Validación apellido
+    if (this.empleado.apellido == null || this.empleado.apellido.length == 0 || /^\s+$/.test(this.empleado.apellido)) {
       Swal.fire(
         '',
         `El apellido no puede ser vacio`,
         'warning'
       );
-      this.empleado.apellido = null;
-      return;
-    }
-    if (this.empleado.apellido === undefined) {
-      Swal.fire(
-        '',
-        'El apellido no puede ser vacio',
-        'info'
-      );
-      return;
-    }
-    if (this.empleado.correo == null) {
       this.empleado.correo = null;
+      return;
+    } else if (!(/([a-z\xc0-\xff]+)$/i.test(this.empleado.apellido))) {   // Valida que el input no contenga numeros
       Swal.fire(
         '',
-        `El correo no puede ser nulo`,
+        'El apellido no puede contener nùmeros',
         'warning'
       );
       return;
     }
-    if (this.empleado.correo.length <= 0) {
-      Swal.fire(
-        '',
-        `El correo no puede ser vacio`,
-        'warning'
-      );
-      this.empleado.correo = null;
-      return;
-    }
-    if (this.empleado.correo === undefined) {
-      Swal.fire(
-        '',
-        'El correo no puede ser vacio',
-        'info'
-      );
-      return;
-    }
+
+    // Validar departamentos
     if (this.empleado.departamento == null) {
       this.empleado.departamento = null;
       Swal.fire(
@@ -107,27 +85,31 @@ export class EmpleadosComponent implements OnInit {
       );
       return;
     }
-    if (this.empleado.departamento.length <= 0) {
+
+    if (this.empleado.correo == null || this.empleado.correo.length == 0 || /^\s+$/.test(this.empleado.correo)) {
       Swal.fire(
         '',
-        `El departamento no puede ser vacio`,
+        `El correo no puede ser vacio`,
         'warning'
       );
-      this.empleado.departamento = null;
+      this.empleado.correo = null;
       return;
     }
-    if (this.empleado.departamento === undefined) {
+    let re = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+    if (!re.exec(this.empleado.correo)) {
       Swal.fire(
         '',
-        'El departamento no puede ser vacio',
-        'info'
+        `Ingrese un correo valido`,
+        'warning'
       );
+      this.empleado.correo = null;
       return;
     }
+
     if (this.empleado.nombre) {
+        if(this.empleado.apellido){
         if(this.empleado.departamento){
-        if(this.empleado.nombre){
-           if(this.empleado.apellido){
+           if(this.empleado.correo){
 
             this.empleado.nombreCompleto = `${this.empleado.nombre} ${this.empleado.apellido}`;
             this.serviceRequerimiento.crearEmpleado(this.empleado);
@@ -141,8 +123,9 @@ export class EmpleadosComponent implements OnInit {
       }
       this.router.navigate(['/administrador']);
     }
+
   }
-  atras(){
+  atras() {
     this.router.navigate(["./administrador"])
   }
 

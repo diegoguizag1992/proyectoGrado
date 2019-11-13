@@ -1,33 +1,37 @@
-<div class="card">
-    <div class="container d-flex justify-content-center pt-5">
-        <div class="card border-warning" style="width: 18rem;">
-          <div class="card-header text-center text-warning">Creación Perfil</div>
-          <div class="card-body text-secondary text-center">
-              <form (ngSubmit)="crear()">
-                  <!-- <h5 class="card-title">Nombre:</h5>
-                  <input type="text" placeholder="Nombre ..."
-                         value="nombre" class="form-control" name="nombre"
-                         [(ngModel)]="empleados.nombre" required/>
-                  <br> -->
-                  <h6 class="card-title">Nombre perfil:</h6>
-                  <input type="text"
-                         class="form-control" name="name"
-                         [(ngModel)]="informacionPerfil.name" required/>
-                  <br>
-                  <h6 class="card-title">Ruta perfil:</h6>
-                  <input type="text"
-                         class="form-control" name="path"
-                         [(ngModel)]="informacionPerfil.path" required/>
-                  <br> <br>
-                  <button class="btn btn-secondary" type="submit"> crear </button>
-                  &nbsp; &nbsp;
-                  <button class="btn btn-secondary" type="button" (click)="atras()"> Atras </button>
-                  <br>
-                </form>
-          </div>
-        </div>
-      </div>
-      <br> <br>
-  </div>
-  <br>
 
+  <div class="container d-flex  justify-content-center mt-3">
+      <div class="card" style="width: 36rem;">
+          <div class="card-body">
+            <h5 class="card-title text-secondary"> <i> Crear módulo JBolivar</i> </h5>
+            <br>
+            <form (ngSubmit)="crear()">
+            <div class="modulos">
+                <div class="container">
+                    <p class="d-flex justify-content-start text-dark">Nombre:</p>
+                    <select class="form-control inputEstado"  id="name"
+                      [(ngModel)]="informacionPerfil.name" name="name">
+                      <option *ngFor="let lista of listaDepartamentos" [value]="lista.nombre">{{lista.nombre}}</option>
+                    </select>
+                </div>
+                <div class="container">
+                    <p class="d-flex justify-content-start text-dark">Ruta:</p>
+                    <select class="form-control inputEstado"  id="name"
+                      [(ngModel)]="informacionPerfil.path" name="name">
+                      <option *ngFor="let lista of listaDepartamentos" [value]="lista.path">{{lista.path}}</option>
+                    </select>
+                </div>
+              </div>
+              <br>
+              <div class="modulos">
+                <div class="container">
+                    <button class="btn btn-dark" type="submit"> Crear </button>
+                </div>
+                <div class="container">
+                    <button class="btn btn-dark" type="button" (click)="atras()"> Atras </button>
+                </div>
+              </div>
+          </form>
+        </div>
+    </div>
+  <br>
+  </div>

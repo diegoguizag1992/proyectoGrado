@@ -11,9 +11,10 @@
                 <br> -->
                 <br>
                 <h6 class="card-title text-secondary">Tipo:</h6>
-                <input type="text"
-                       value="tipoRequerimiento" class="form-control" name="tipoRequerimiento"
-                       [(ngModel)]="tipoRequerimiento.name" required/>
+                <select class="form-control"  id="departamento"
+                  [(ngModel)]="tipoRequerimiento.name" name="departamento">
+                   <option *ngFor="let lista of requerimientos" [value]="lista.name">{{lista.name}}</option>
+                 </select>
                 <br> <br>
                 <button class="btn btn-warning" type="submit"> Crear </button>
                 &nbsp; &nbsp;
