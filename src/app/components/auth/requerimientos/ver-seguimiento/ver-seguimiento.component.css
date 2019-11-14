@@ -1,17 +1,10 @@
-<<<<<<< HEAD
 .boton{
   background-color: #252b35;
   color: aliceblue;
-=======
 
-.boton{
-  background-color: #98b8f0;
-  color: rgb(255, 255, 255);
 }
 
-.cardSeguimiento{
+.cardSeguimiento {
   background-color: #b7cdf485;
   color: rgb(93, 99, 99);
-
->>>>>>> master
 }
