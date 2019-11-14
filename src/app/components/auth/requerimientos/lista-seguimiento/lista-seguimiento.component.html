@@ -57,13 +57,13 @@
         <!-- Columna Asunto -->
         <ng-container matColumnDef="Asunto">
               <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Asunto</mat-header-cell>
-              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.asuntoSeguimiento}} </mat-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.asuntoSeguimiento | truncate:25}} </mat-cell>
         </ng-container>
 
          <!-- Columna Observaciones -->
          <ng-container matColumnDef="Observaciones">
               <mat-header-cell *matHeaderCellDef mat-sort-header class="centrarTexto"> Observaciones </mat-header-cell>
-              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.observaciones}} </mat-cell>
+              <mat-cell *matCellDef="let row" class="centrarTexto"> {{row.observaciones | truncate:25}} </mat-cell>
         </ng-container>
 
         <!-- Columna link Doc Adjuntos -->

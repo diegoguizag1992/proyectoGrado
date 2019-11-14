@@ -30,7 +30,6 @@ export class VerSeguimientoComponent implements OnInit {
         this.servicioSeguimientos.informacionSeguimiento()
           .subscribe(parametro => {
             // console.log('este', parametro);
-
             this.informacionSeguimiento = parametro;
             this.seguimiento = this.informacionSeguimiento.find(data => data.id === this.id);
             console.log(this.seguimiento);
@@ -38,7 +37,7 @@ export class VerSeguimientoComponent implements OnInit {
       });
   }
   atras() {
-    this.router.navigate(['/respuestaRequerimientos']);
+    this.router.navigate(['/listaSeguimientos']);
   }
 
 }

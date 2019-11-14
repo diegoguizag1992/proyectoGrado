@@ -53,6 +53,7 @@ import { RespuestaComponent } from './components/auth/requerimientos/respuesta/r
 import { ListaSeguimientoComponent } from './components/auth/requerimientos/lista-seguimiento/lista-seguimiento.component';
 import { VerComponent } from './components/auth/requerimientos/ver/ver.component';
 import { VerSeguimientoComponent } from './components/auth/requerimientos/ver-seguimiento/ver-seguimiento.component';
+import { TruncatePipe } from './pipes/truncate.pipe'
 
 
 
@@ -87,6 +88,7 @@ import { VerSeguimientoComponent } from './components/auth/requerimientos/ver-se
     ListaSeguimientoComponent,
     VerComponent,
     VerSeguimientoComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,
